@@ -9,15 +9,22 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
     />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
       /* Add any additional styles here if needed */
       .hidden {
         display: none !important;
       }
-      
+
       /* QR Code styles */
       .qr-container {
         display: flex;
@@ -26,7 +33,7 @@
         justify-content: center;
         padding: 2rem 0;
       }
-      
+
       .qr-code-box {
         border: 1px solid #e0e0e0;
         border-radius: 8px;
@@ -38,12 +45,12 @@
         align-items: center;
         justify-content: center;
       }
-      
+
       .qr-code-img {
         width: 100%;
         height: 100%;
       }
-      
+
       .qr-instruction {
         display: flex;
         align-items: center;
@@ -51,32 +58,32 @@
         color: #666;
         margin-bottom: 2rem;
       }
-      
+
       .qr-instruction i {
         margin-right: 0.5rem;
       }
-      
+
       .qr-signup {
         text-align: center;
         margin-top: 1rem;
       }
-      
+
       .qr-signup a {
-        color: #00C087;
+        color: #00c087;
         text-decoration: none;
         font-weight: 500;
       }
-      
+
       /* Loading spinner */
       .spinner {
         border: 4px solid rgba(0, 0, 0, 0.1);
         width: 36px;
         height: 36px;
         border-radius: 50%;
-        border-left-color: #00C087;
+        border-left-color: #00c087;
         animation: spin 1s linear infinite;
       }
-      
+
       @keyframes spin {
         0% {
           transform: rotate(0deg);
@@ -85,25 +92,244 @@
           transform: rotate(360deg);
         }
       }
+
+      /* Security Verification Styles */
+      .security-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px 0;
+      }
+
+      .security-title {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #1a1a1a;
+      }
+
+      .security-description {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 30px;
+      }
+
+      /* Verification Field Styles */
+      .verification-field {
+        position: relative;
+        margin-bottom: 25px;
+      }
+
+      .verification-label {
+        position: absolute;
+        top: -10px;
+        left: 15px;
+        background-color: white;
+        padding: 0 5px;
+        font-size: 14px;
+        color: #00c087;
+        z-index: 1;
+      }
+
+      .verification-input-wrapper {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+      }
+
+      .verification-input-wrapper.focused {
+        border-bottom: 2px solid #00c087;
+      }
+
+      .verification-input-wrapper.error {
+        border-bottom: 2px solid #ff4d4f;
+      }
+
+      .verification-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        background: transparent;
+      }
+
+      .verification-send-btn {
+        background: none;
+        border: none;
+        color: #00c087;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .verification-send-btn:disabled {
+        color: #ccc;
+        cursor: not-allowed;
+      }
+
+      .verification-message {
+        font-size: 14px;
+        margin-top: 5px;
+      }
+
+      .verification-message.success {
+        color: #666;
+      }
+
+      .verification-message.error {
+        color: #ff4d4f;
+      }
+
+      /* Circular Checkbox */
+      .checkbox-container {
+        display: flex;
+        align-items: center;
+        margin: 30px 0;
+      }
+
+      .round-checkbox {
+        position: relative;
+        margin-right: 10px;
+      }
+
+      .round-checkbox input[type="checkbox"] {
+        opacity: 0;
+        position: absolute;
+      }
+
+      .round-checkbox label {
+        position: relative;
+        cursor: pointer;
+        padding-left: 28px;
+        line-height: 20px;
+        display: inline-block;
+      }
+
+      .round-checkbox label:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        background: #fff;
+      }
+
+      .round-checkbox input[type="checkbox"]:checked + label:after {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #00c087;
+      }
+
+      .checkbox-label {
+        font-size: 14px;
+        color: #333;
+      }
+
+      /* Security Verification Link */
+      .verification-link {
+        display: block;
+        color: #1a1a1a;
+        text-decoration: none;
+        font-weight: 500;
+        margin-bottom: 30px;
+      }
+
+      /* Submit Button */
+      .submit-button {
+        width: 100%;
+        background-color: #a0a0a0;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 15px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: not-allowed;
+        margin-bottom: 30px;
+      }
+
+      .submit-button.active {
+        background-color: #1d1d1d;
+        cursor: pointer;
+      }
+
+      /* Anti-phishing Notice */
+      .notice-container {
+        background-color: #e6f7f1;
+        border-radius: 8px;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+      }
+
+      .notice-icon {
+        color: #00c087;
+        margin-right: 10px;
+      }
+
+      .notice-text {
+        color: #00c087;
+      }
+
+      .settings-text {
+        color: #666;
+        text-align: center;
+      }
+
+      /* Back Button */
+      .back-button {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        color: #1a1a1a;
+        font-size: 16px;
+        cursor: pointer;
+        padding: 0;
+        margin-bottom: 20px;
+      }
+
+      .back-button i {
+        margin-right: 5px;
+      }
+
+      .scaner-imge{
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
     </style>
   </head>
   <body>
     <div>
-      <header id="header" class="container">
-        <div class="logo">
-          <i class="fa-solid fa-k fa-2x" style="color: #00C087;"></i>
+      <header id="header" >
+       <div class="">
+         <div class="logo">
+          <img src="./images/logo-k.svg" alt="logo">
         </div>
-        <div class="header-icons">
+        <!-- <div class="header-icons">
           <div class="icon">
-            <i class="fa-solid fa-globe" style="color: #1A1A1A;"></i>
+            <i class="fa-solid fa-globe" style="color: #1a1a1a"></i>
           </div>
           <div class="icon">
-            <i class="fa-solid fa-earth-americas" style="color: #1A1A1A;"></i>
+            <i class="fa-solid fa-earth-americas" style="color: #1a1a1a"></i>
           </div>
           <div class="icon">
-            <i class="fa-solid fa-sun" style="color: #1A1A1A;"></i>
+            <i class="fa-solid fa-sun" style="color: #1a1a1a"></i>
           </div>
-        </div>
+        </div> -->
+       </div>
       </header>
 
       <main>
@@ -147,10 +373,13 @@
                     required
                   />
                   <div class="input-icon">
-                    <i class="fa-solid fa-envelope" style="color: #00C087;"></i>
+                    <i class="fa-solid fa-envelope" style="color: #00c087"></i>
                   </div>
-                  <div class="clear-icon" style="display: none;">
-                    <i class="fa-solid fa-times-circle" style="color: #666666;"></i>
+                  <div class="clear-icon" style="display: none">
+                    <i
+                      class="fa-solid fa-times-circle"
+                      style="color: #666666"
+                    ></i>
                   </div>
                 </div>
               </fieldset>
@@ -167,10 +396,13 @@
                 <div class="custom-input-container">
                   <input type="text" id="email2" disabled />
                   <div class="input-icon">
-                    <i class="fa-solid fa-envelope" style="color: #00C087;"></i>
+                    <i class="fa-solid fa-envelope" style="color: #00c087"></i>
                   </div>
                   <div class="clear-icon">
-                    <i class="fa-solid fa-times-circle" style="color: #666666;"></i>
+                    <i
+                      class="fa-solid fa-times-circle"
+                      style="color: #666666"
+                    ></i>
                   </div>
                 </div>
               </fieldset>
@@ -186,10 +418,13 @@
                     required
                   />
                   <div class="toggle-password">
-                    <i class="fa-solid fa-eye" style="color: #666666;"></i>
+                    <i class="fa-solid fa-eye" style="color: #666666"></i>
                   </div>
-                  <div class="clear-icon" style="display: none;">
-                    <i class="fa-solid fa-times-circle" style="color: #666666;"></i>
+                  <div class="clear-icon" style="display: none">
+                    <i
+                      class="fa-solid fa-times-circle"
+                      style="color: #666666"
+                    ></i>
                   </div>
                 </div>
               </fieldset>
@@ -197,78 +432,125 @@
               <div class="forgot-password">
                 <a href="#">Forgot password?</a>
               </div>
-              <button id="handleLogin" type="submit" class="btn-primary">Log In</button>
+              <button id="handleLogin" type="submit" class="btn-primary">
+                Log In
+              </button>
             </div>
 
             <div class="form-step hidden" id="step3">
-              <!-- Back Button -->
-              <button type="button" class="back-button" id="securityBackBtn">
-                <i class="fa-solid fa-arrow-left"></i>
-                Back
-              </button>
+              <div class="security-container">
+                <!-- Back Button -->
+                <button type="button" class="back-button" id="securityBackBtn">
+                  <i class="fa-solid fa-arrow-left"></i>
+                  Back
+                </button>
 
-              <!-- Heading -->
-              <h1>Security Verification</h1>
-              <p class="description">
-                You need to complete all of the following verifications to
-                continue.
-              </p>
+                <!-- Heading -->
+                <h1 class="security-title">Security Verification</h1>
+                <p class="security-description">
+                  You need to complete all of the following verifications to
+                  continue.
+                </p>
 
-              <!-- Email Verification -->
-              <fieldset class="custom-fieldset">
-                <legend>Email Verification Code</legend>
-                <div class="custom-input-container">
-                  <input type="text" id="emailCode" placeholder="Enter code" />
-                  <button class="send-button" id="sendEmailBtn">Send</button>
-                  <div class="clear-icon" style="display: none;">
-                    <i class="fa-solid fa-times-circle" style="color: #666666;"></i>
+                <!-- Email Verification -->
+                <div class="verification-field">
+                  <span class="verification-label"
+                    >Email Verification Code</span
+                  >
+                  <div
+                    class="verification-input-wrapper"
+                    id="emailVerificationWrapper"
+                  >
+                    <input
+                      type="text"
+                      id="emailCode"
+                      class="verification-input"
+                      
+                    />
+                    <button
+                      type="button"
+                      class="verification-send-btn"
+                      id="sendEmailBtn"
+                    >
+                      Send
+                    </button>
                   </div>
+                  <p
+                    class="verification-message success"
+                    id="emailVerificationMessage"
+                  >
+                    A verification code will be sent to da**@**.com.
+                  </p>
                 </div>
-            </fieldset>
-            <p class="error-message">Invalid input.</p>
-              
-              <!-- SMS Verification -->
-              <fieldset class="custom-fieldset">
-                <legend>SMS Verification Code</legend>
-                <div class="custom-input-container">
-                  <input type="text" id="smsCode" placeholder="Enter code" />
-                  <button class="send-button" id="sendSmsBtn">Send</button>
-                  <div class="clear-icon" style="display: none;">
-                    <i class="fa-solid fa-times-circle" style="color: #666666;"></i>
+
+                <!-- SMS Verification -->
+                <div class="verification-field">
+                  <span class="verification-label">SMS Verification Code</span>
+                  <div
+                    class="verification-input-wrapper"
+                    id="smsVerificationWrapper"
+                  >
+                    <input
+                      type="text"
+                      id="smsCode"
+                      class="verification-input"
+                     
+                    />
+                    <button
+                      type="button"
+                      class="verification-send-btn"
+                      id="sendSmsBtn"
+                    >
+                      Send
+                    </button>
                   </div>
+                  <p
+                    class="verification-message error"
+                    id="smsVerificationMessage"
+                  >
+                    Invalid input.
+                  </p>
                 </div>
-            </fieldset>
-            <p class="error-message">Invalid input.</p>
-              
-              <!-- Trust Device Checkbox -->
-              <div class="checkbox-container">
-                <input type="checkbox" id="trust-device" class="checkbox" />
-                <label for="trust-device" class="checkbox-label"
-                  >Trust this device to not require security verification for 30
-                  days</label
+
+                <!-- Trust Device Checkbox -->
+                <div class="checkbox-container">
+                  <div class="round-checkbox">
+                    <input type="checkbox" id="trust-device" />
+                    <label for="trust-device"></label>
+                  </div>
+                  <span class="checkbox-label">
+                    Trust this device to not require security verification for
+                    30 days
+                  </span>
+                </div>
+
+                <!-- Security Verification Not Available -->
+                <a href="#" class="verification-link">
+                  Security verification not available
+                </a>
+
+                <!-- Submit Button -->
+                <button
+                  type="button"
+                  class="submit-button"
+                  id="securitySubmitBtn"
                 >
+                  Submit
+                </button>
+
+                <!-- Anti-phishing Notice -->
+                <div class="notice-container">
+                  <i class="fa-solid fa-check-circle notice-icon"></i>
+                  <span class="notice-text"
+                    >No anti-phishing code configured yet.</span
+                  >
+                </div>
+
+                <!-- Settings Link -->
+                <p class="settings-text">
+                  Log in to set your anti-phishing code in security settings.
+                </p>
               </div>
-
-              <!-- Security Verification Not Available -->
-              <a href="#" class="verification-link"
-                >Security verification not available</a
-              >
-
-              <!-- Submit Button -->
-              <button class="submit-button">Submit</button>
-
-              <!-- Anti-phishing Notice -->
-              <div class="notice-container">
-                <i class="fa-solid fa-check-circle" style="color: currentColor;"></i>
-                <span class="notice-text"
-                  >No anti-phishing code configured yet.</span
-                >
-              </div>
-
-              <!-- Settings Link -->
-              <p class="settings-text">
-                Log in to set your anti-phishing code in security settings.
-              </p>
             </div>
 
             <!-- Sub-Account Tab Content -->
@@ -283,10 +565,13 @@
                     required
                   />
                   <div class="input-icon">
-                    <i class="fa-solid fa-envelope" style="color: #00C087;"></i>
+                    <i class="fa-solid fa-envelope" style="color: #00c087"></i>
                   </div>
-                  <div class="clear-icon" style="display: none;">
-                    <i class="fa-solid fa-times-circle" style="color: #666666;"></i>
+                  <div class="clear-icon" style="display: none">
+                    <i
+                      class="fa-solid fa-times-circle"
+                      style="color: #666666"
+                    ></i>
                   </div>
                 </div>
               </fieldset>
@@ -303,10 +588,13 @@
                 <div class="custom-input-container">
                   <input type="text" id="subEmail2" disabled />
                   <div class="input-icon">
-                    <i class="fa-solid fa-envelope" style="color: #00C087;"></i>
+                    <i class="fa-solid fa-envelope" style="color: #00c087"></i>
                   </div>
                   <div class="clear-icon">
-                    <i class="fa-solid fa-times-circle" style="color: #666666;"></i>
+                    <i
+                      class="fa-solid fa-times-circle"
+                      style="color: #666666"
+                    ></i>
                   </div>
                 </div>
               </fieldset>
@@ -322,10 +610,13 @@
                     required
                   />
                   <div class="toggle-password sub-toggle-password">
-                    <i class="fa-solid fa-eye" style="color: #666666;"></i>
+                    <i class="fa-solid fa-eye" style="color: #666666"></i>
                   </div>
-                  <div class="clear-icon" style="display: none;">
-                    <i class="fa-solid fa-times-circle" style="color: #666666;"></i>
+                  <div class="clear-icon" style="display: none">
+                    <i
+                      class="fa-solid fa-times-circle"
+                      style="color: #666666"
+                    ></i>
                   </div>
                 </div>
               </fieldset>
@@ -333,78 +624,129 @@
               <div class="forgot-password">
                 <a href="#">Forgot password?</a>
               </div>
-              <button type="button" id="subLoginBtn" class="btn-primary">Log In</button>
+              <button type="button" id="subLoginBtn" class="btn-primary">
+                Log In
+              </button>
             </div>
 
             <div class="form-step hidden" id="subStep3">
-              <!-- Back Button -->
-              <button type="button" class="back-button" id="subSecurityBackBtn">
-                <i class="fa-solid fa-arrow-left"></i>
-                Back
-              </button>
-
-              <!-- Heading -->
-              <h1>Security Verification</h1>
-              <p class="description">
-                You need to complete all of the following verifications to
-                continue.
-              </p>
-
-              <!-- Email Verification -->
-              <fieldset class="custom-fieldset">
-                <legend>Email Verification Code</legend>
-                <div class="custom-input-container">
-                  <input type="text" id="subEmailCode" placeholder="Enter code" />
-                  <button class="send-button" id="subSendEmailBtn">Send</button>
-                  <div class="clear-icon" style="display: none;">
-                    <i class="fa-solid fa-times-circle" style="color: #666666;"></i>
-                  </div>
-                </div>
-            </fieldset>
-            <p class="error-message">Invalid input.</p>
-              
-              <!-- SMS Verification -->
-              <fieldset class="custom-fieldset">
-                <legend>SMS Verification Code</legend>
-                <div class="custom-input-container">
-                  <input type="text" id="subSmsCode" placeholder="Enter code" />
-                  <button class="send-button" id="subSendSmsBtn">Send</button>
-                  <div class="clear-icon" style="display: none;">
-                    <i class="fa-solid fa-times-circle" style="color: #666666;"></i>
-                  </div>
-                </div>
-            </fieldset>
-            <p class="error-message">Invalid input.</p>
-              
-              <!-- Trust Device Checkbox -->
-              <div class="checkbox-container">
-                <input type="checkbox" id="sub-trust-device" class="checkbox" />
-                <label for="sub-trust-device" class="checkbox-label"
-                  >Trust this device to not require security verification for 30
-                  days</label
+              <div class="security-container">
+                <!-- Back Button -->
+                <button
+                  type="button"
+                  class="back-button"
+                  id="subSecurityBackBtn"
                 >
-              </div>
+                  <i class="fa-solid fa-arrow-left"></i>
+                  Back
+                </button>
 
-              <!-- Security Verification Not Available -->
-              <a href="#" class="verification-link"
-                >Security verification not available</a
-              >
+                <!-- Heading -->
+                <h1 class="security-title">Security Verification</h1>
+                <p class="security-description">
+                  You need to complete all of the following verifications to
+                  continue.
+                </p>
 
-              <!-- Submit Button -->
-              <button class="submit-button">Submit</button>
+                <!-- Email Verification -->
+                <div class="verification-field">
+                  <span class="verification-label"
+                    >Email Verification Code</span
+                  >
+                  <div
+                    class="verification-input-wrapper"
+                    id="subEmailVerificationWrapper"
+                  >
+                    <input
+                      type="text"
+                      id="subEmailCode"
+                      class="verification-input"
+                      
+                    />
+                    <button
+                      type="button"
+                      class="verification-send-btn"
+                      id="subSendEmailBtn"
+                    >
+                      Send
+                    </button>
+                  </div>
+                  <p
+                    class="verification-message success"
+                    id="subEmailVerificationMessage"
+                  >
+                    A verification code will be sent to da**@**.com.
+                  </p>
+                </div>
 
-              <!-- Anti-phishing Notice -->
-              <div class="notice-container">
-                <i class="fa-solid fa-check-circle" style="color: currentColor;"></i>
-                <span class="notice-text"
-                  >No anti-phishing code configured yet.</span
+                <!-- SMS Verification -->
+                <div class="verification-field">
+                  <span class="verification-label">SMS Verification Code</span>
+                  <div
+                    class="verification-input-wrapper"
+                    id="subSmsVerificationWrapper"
+                  >
+                    <input
+                      type="text"
+                      id="subSmsCode"
+                      class="verification-input"
+                    
+                    />
+                    <button
+                      type="button"
+                      class="verification-send-btn"
+                      id="subSendSmsBtn"
+                    >
+                      Send
+                    </button>
+                  </div>
+                  <p
+                    class="verification-message error"
+                    id="subSmsVerificationMessage"
+                  >
+                    Invalid input.
+                  </p>
+                </div>
+
+                <!-- Trust Device Checkbox -->
+                <div class="checkbox-container">
+                  <div class="round-checkbox">
+                    <input type="checkbox" id="sub-trust-device" />
+                    <label for="sub-trust-device"></label>
+                  </div>
+                  <span class="checkbox-label">
+                    Trust this device to not require security verification for
+                    30 days
+                  </span>
+                </div>
+
+                <!-- Security Verification Not Available -->
+                <a href="#" class="verification-link">
+                  Security verification not available
+                </a>
+
+                <!-- Submit Button -->
+                <button
+                  type="button"
+                  class="submit-button"
+                  id="subSecuritySubmitBtn"
                 >
-              </div>
+                  Submit
+                </button>
 
-              <!-- Settings Link -->
-              <p class="settings-text">
-                Log in to set your anti-phishing code in security settings.
-              </p>
+                <!-- Anti-phishing Notice -->
+                <div class="notice-container">
+                  <i class="fa-solid fa-check-circle notice-icon"></i>
+                  <span class="notice-text"
+                    >No anti-phishing code configured yet.</span
+                  >
+                </div>
+
+                <!-- Settings Link -->
+                <p class="settings-text">
+                  Log in to set your anti-phishing code in security settings.
+                </p>
+              </div>
             </div>
 
             <!-- QR Code Tab Content -->
@@ -414,16 +756,23 @@
                 <div class="qr-code-box">
                   <!-- Loading spinner (shown initially) -->
                   <div id="qrLoading" class="spinner"></div>
-                  
+
                   <!-- QR Code (hidden initially) -->
-                  <img id="qrCodeImage" src="./images/qrcode.png" alt="KuCoin QR Code" class="qr-code-img hidden">
+                  <img
+                    id="qrCodeImage"
+                    src="./images/qrcode.png"
+                    alt="KuCoin QR Code"
+                    class="qr-code-img hidden"
+                  />
                 </div>
-                
+
                 <div class="qr-instruction">
-                  <i class="fa-solid fa-mobile-screen"></i>
-                  <span>Open the KuCoin app and scan the QR code to log in.</span>
+                 <img class="scaner-imge" src="./images/scanner.png" alt="scaner iamge">
+                  <span
+                    >Open the KuCoin app and scan the QR code to log in.</span
+                  >
                 </div>
-                
+
                 <div class="qr-signup">
                   <p>Don't have an account? <a href="#">Sign up now</a></p>
                 </div>
@@ -437,22 +786,22 @@
 
           <div id="altLogin" class="alternative-login">
             <button class="alt-login-btn passkey">
-              <i class="fa-solid fa-user" style="color: #1A1A1A;"></i>
+              <i class="fa-solid fa-user" style="color: #1a1a1a"></i>
               Log In with Passkey
             </button>
           </div>
 
           <div id="socialLogin" class="social-login">
             <button class="social-btn telegram">
-              <i class="fa-brands fa-telegram" style="color: #0088CC;"></i>
+             <img src="./images/skype.svg" alt="">
               Telegram
             </button>
             <button class="social-btn google">
-              <i class="fa-brands fa-google" style="color: #4285F4;"></i>
+              <img src="./images/google.png" alt="">
               Google
             </button>
             <button class="social-btn apple">
-              <i class="fa-brands fa-apple" style="color: #000000;"></i>
+            <img src="./images/apple.svg" alt="">
               Apple
             </button>
           </div>
@@ -480,7 +829,7 @@
         const subStep2 = document.getElementById("subStep2");
         const subStep3 = document.getElementById("subStep3");
         const qrStep = document.getElementById("qrStep");
-        
+
         // Get QR code elements
         const qrLoading = document.getElementById("qrLoading");
         const qrCodeImage = document.getElementById("qrCodeImage");
@@ -497,12 +846,45 @@
         const subEmailCodeInput = document.getElementById("subEmailCode");
         const subSmsCodeInput = document.getElementById("subSmsCode");
 
+        // Get verification wrappers and messages
+        const emailVerificationWrapper = document.getElementById(
+          "emailVerificationWrapper"
+        );
+        const smsVerificationWrapper = document.getElementById(
+          "smsVerificationWrapper"
+        );
+        const emailVerificationMessage = document.getElementById(
+          "emailVerificationMessage"
+        );
+        const smsVerificationMessage = document.getElementById(
+          "smsVerificationMessage"
+        );
+        const subEmailVerificationWrapper = document.getElementById(
+          "subEmailVerificationWrapper"
+        );
+        const subSmsVerificationWrapper = document.getElementById(
+          "subSmsVerificationWrapper"
+        );
+        const subEmailVerificationMessage = document.getElementById(
+          "subEmailVerificationMessage"
+        );
+        const subSmsVerificationMessage = document.getElementById(
+          "subSmsVerificationMessage"
+        );
+
+        // Get submit buttons
+        const securitySubmitBtn = document.getElementById("securitySubmitBtn");
+        const subSecuritySubmitBtn = document.getElementById(
+          "subSecuritySubmitBtn"
+        );
+
         // Get all buttons
         const nextBtn = document.getElementById("nextBtn");
         const subNextBtn = document.getElementById("subNextBtn");
         const subLoginBtn = document.getElementById("subLoginBtn");
         const securityBackBtn = document.getElementById("securityBackBtn");
-        const subSecurityBackBtn = document.getElementById("subSecurityBackBtn");
+        const subSecurityBackBtn =
+          document.getElementById("subSecurityBackBtn");
 
         // Get UI elements
         const header = document.getElementById("header");
@@ -515,27 +897,150 @@
 
         // Function to hide all form steps
         function hideAllSteps() {
-          const allSteps = [step1, step2, step3, subStep1, subStep2, subStep3, qrStep];
-          allSteps.forEach(step => {
+          const allSteps = [
+            step1,
+            step2,
+            step3,
+            subStep1,
+            subStep2,
+            subStep3,
+            qrStep,
+          ];
+          allSteps.forEach((step) => {
             if (step) step.classList.add("hidden");
           });
         }
-        
+
         // Function to simulate QR code loading
         function loadQRCode() {
           // Show loading spinner, hide QR code
           qrLoading.classList.remove("hidden");
           qrCodeImage.classList.add("hidden");
-          
+
           // Simulate loading delay for exactly 5 seconds
           setTimeout(() => {
             // Hide loading spinner and show QR code
             qrLoading.classList.add("hidden");
             qrCodeImage.classList.remove("hidden");
-          }, 5000); // 5 seconds loading time
-
-          
+          }, 3000); // 5 seconds loading time
         }
+
+        // Function to validate verification codes and update submit button
+        function validateVerificationCodes() {
+          const emailCodeValue = emailCodeInput.value.trim();
+          const smsCodeValue = smsCodeInput.value.trim();
+
+          if (emailCodeValue !== "" && smsCodeValue !== "") {
+            securitySubmitBtn.classList.add("active");
+          } else {
+            securitySubmitBtn.classList.remove("active");
+          }
+        }
+
+        // Function to validate sub-account verification codes and update submit button
+        function validateSubVerificationCodes() {
+          const subEmailCodeValue = subEmailCodeInput.value.trim();
+          const subSmsCodeValue = subSmsCodeInput.value.trim();
+
+          if (subEmailCodeValue !== "" && subSmsCodeValue !== "") {
+            subSecuritySubmitBtn.classList.add("active");
+          } else {
+            subSecuritySubmitBtn.classList.remove("active");
+          }
+        }
+
+        // Add focus and blur events for verification inputs
+        emailCodeInput.addEventListener("focus", () => {
+          emailVerificationWrapper.classList.add("focused");
+          emailVerificationWrapper.classList.remove("error");
+          smsVerificationMessage.style.display = "none";
+        });
+
+        emailCodeInput.addEventListener("blur", () => {
+          emailVerificationWrapper.classList.remove("focused");
+          if (emailCodeInput.value.trim() === "") {
+            emailVerificationWrapper.classList.add("error");
+            emailVerificationMessage.textContent = "Invalid input.";
+            emailVerificationMessage.classList.remove("success");
+            emailVerificationMessage.classList.add("error");
+          } else {
+            emailVerificationMessage.textContent =
+              "A verification code will be sent to da**@**.com.";
+            emailVerificationMessage.classList.add("success");
+            emailVerificationMessage.classList.remove("error");
+          }
+          validateVerificationCodes();
+        });
+
+        smsCodeInput.addEventListener("focus", () => {
+          smsVerificationWrapper.classList.add("focused");
+          smsVerificationWrapper.classList.remove("error");
+          smsVerificationMessage.style.display = "none";
+        });
+
+        smsCodeInput.addEventListener("blur", () => {
+          smsVerificationWrapper.classList.remove("focused");
+          if (smsCodeInput.value.trim() === "") {
+            smsVerificationWrapper.classList.add("error");
+            smsVerificationMessage.textContent = "Invalid input.";
+            smsVerificationMessage.style.display = "block";
+          } else {
+            smsVerificationMessage.style.display = "none";
+          }
+          validateVerificationCodes();
+        });
+
+        // Add input events for verification inputs
+        emailCodeInput.addEventListener("input", validateVerificationCodes);
+        smsCodeInput.addEventListener("input", validateVerificationCodes);
+
+        // Add focus and blur events for sub-account verification inputs
+        subEmailCodeInput.addEventListener("focus", () => {
+          subEmailVerificationWrapper.classList.add("focused");
+          subEmailVerificationWrapper.classList.remove("error");
+          subSmsVerificationMessage.style.display = "none";
+        });
+
+        subEmailCodeInput.addEventListener("blur", () => {
+          subEmailVerificationWrapper.classList.remove("focused");
+          if (subEmailCodeInput.value.trim() === "") {
+            subEmailVerificationWrapper.classList.add("error");
+            subEmailVerificationMessage.textContent = "Invalid input.";
+            subEmailVerificationMessage.classList.remove("success");
+            subEmailVerificationMessage.classList.add("error");
+          } else {
+            subEmailVerificationMessage.textContent =
+              "A verification code will be sent to da**@**.com.";
+            subEmailVerificationMessage.classList.add("success");
+            subEmailVerificationMessage.classList.remove("error");
+          }
+          validateSubVerificationCodes();
+        });
+
+        subSmsCodeInput.addEventListener("focus", () => {
+          subSmsVerificationWrapper.classList.add("focused");
+          subSmsVerificationWrapper.classList.remove("error");
+          subSmsVerificationMessage.style.display = "none";
+        });
+
+        subSmsCodeInput.addEventListener("blur", () => {
+          subSmsVerificationWrapper.classList.remove("focused");
+          if (subSmsCodeInput.value.trim() === "") {
+            subSmsVerificationWrapper.classList.add("error");
+            subSmsVerificationMessage.textContent = "Invalid input.";
+            subSmsVerificationMessage.style.display = "block";
+          } else {
+            subSmsVerificationMessage.style.display = "none";
+          }
+          validateSubVerificationCodes();
+        });
+
+        // Add input events for sub-account verification inputs
+        subEmailCodeInput.addEventListener(
+          "input",
+          validateSubVerificationCodes
+        );
+        subSmsCodeInput.addEventListener("input", validateSubVerificationCodes);
 
         // Tab click handler
         tabs.forEach((tab, index) => {
@@ -551,64 +1056,66 @@
 
             // Hide all steps first
             hideAllSteps();
-            
+
             // Show the appropriate form step based on the tab
             const tabType = tab.getAttribute("data-tab");
             if (tabType === "email") {
               step1.classList.remove("hidden");
-               divider.classList.remove("hidden");
-            altLogin.classList.remove("hidden");
-            socialLogin.classList.remove("hidden");
-            signupLink.classList.remove("hidden");
+              divider.classList.remove("hidden");
+              altLogin.classList.remove("hidden");
+              socialLogin.classList.remove("hidden");
+              signupLink.classList.remove("hidden");
             } else if (tabType === "subaccount") {
               subStep1.classList.remove("hidden");
-               divider.classList.remove("hidden");
-            altLogin.classList.remove("hidden");
-            socialLogin.classList.remove("hidden");
-            signupLink.classList.remove("hidden");
+              divider.classList.remove("hidden");
+              altLogin.classList.remove("hidden");
+              socialLogin.classList.remove("hidden");
+              signupLink.classList.remove("hidden");
             } else if (tabType === "qrcode") {
               qrStep.classList.remove("hidden");
               loadQRCode(); // Start loading QR code with 5 second delay
               divider.classList.add("hidden");
-            altLogin.classList.add("hidden");
-            socialLogin.classList.add("hidden");
-            signupLink.classList.add("hidden");
+              altLogin.classList.add("hidden");
+              socialLogin.classList.add("hidden");
+              signupLink.classList.add("hidden");
             }
           });
         });
-        
+
         // Get all clear icons and input fields
-        const allInputs = document.querySelectorAll('input[type="text"], input[type="password"]');
-        
+        const allInputs = document.querySelectorAll(
+          'input[type="text"], input[type="password"]'
+        );
+
         // Function to toggle clear icon visibility
         function toggleClearIcon(input) {
           if (input) {
-            const clearIcon = input.parentElement.querySelector('.clear-icon');
+            const clearIcon = input.parentElement.querySelector(".clear-icon");
             if (clearIcon) {
-              if (input.value.trim() !== '') {
-                clearIcon.style.display = 'block';
+              if (input.value.trim() !== "") {
+                clearIcon.style.display = "block";
               } else {
-                clearIcon.style.display = 'none';
+                clearIcon.style.display = "none";
               }
             }
           }
         }
-        
+
         // Add input event listeners to all inputs
         allInputs.forEach((input) => {
-          const clearIcon = input.parentElement.querySelector('.clear-icon');
+          const clearIcon = input.parentElement.querySelector(".clear-icon");
           if (clearIcon) {
             // Initial state
             toggleClearIcon(input);
-            
+
             // Listen for input changes
-            input.addEventListener('input', () => {
+            input.addEventListener("input", () => {
               toggleClearIcon(input);
             });
-            
+
             // Clear input when icon is clicked
-            clearIcon.addEventListener('click', () => {
-              input.value = '';
+            clearIcon.addEventListener("click", () => {
+              input.value = "";
               toggleClearIcon(input);
               input.focus();
             });
@@ -624,7 +1131,7 @@
             // Hide step 1 and show step 2
             step1.classList.add("hidden");
             step2.classList.remove("hidden");
-            
+
             // Update clear icon visibility
             toggleClearIcon(email2Input);
           } else {
@@ -642,7 +1149,7 @@
             // Hide subStep1 and show subStep2
             subStep1.classList.add("hidden");
             subStep2.classList.remove("hidden");
-            
+
             // Update clear icon visibility
             toggleClearIcon(subEmail2Input);
           } else {
@@ -653,7 +1160,10 @@
 
         // Sub-Account Login button click handler
         subLoginBtn.addEventListener("click", () => {
-          if (subEmail2Input.value.trim() !== "" && subPasswordInput.value.trim() !== "") {
+          if (
+            subEmail2Input.value.trim() !== "" &&
+            subPasswordInput.value.trim() !== ""
+          ) {
             // Hide subStep2 and show subStep3
             subStep2.classList.add("hidden");
             tab.classList.add("hidden");
@@ -681,14 +1191,16 @@
 
             // Focus on email input
             emailInput.focus();
-            
+
             // Update clear icon visibility
             toggleClearIcon(emailInput);
           });
         }
 
         // Clear icon click handler for subEmail2
-        const subEmail2ClearIcon = document.querySelector("#subStep2 .clear-icon");
+        const subEmail2ClearIcon = document.querySelector(
+          "#subStep2 .clear-icon"
+        );
         if (subEmail2ClearIcon) {
           subEmail2ClearIcon.addEventListener("click", () => {
             subEmail2Input.value = "";
@@ -699,7 +1211,7 @@
 
             // Focus on subEmail input
             subEmailInput.focus();
-            
+
             // Update clear icon visibility
             toggleClearIcon(subEmailInput);
           });
@@ -720,7 +1232,9 @@
         }
 
         // Toggle password visibility for sub-account form
-        const subTogglePassword = document.querySelector(".sub-toggle-password");
+        const subTogglePassword = document.querySelector(
+          ".sub-toggle-password"
+        );
         if (subTogglePassword) {
           subTogglePassword.addEventListener("click", () => {
             if (subPasswordInput.type === "password") {
@@ -739,7 +1253,7 @@
             // Hide step 3 and show step 1
             step3.classList.add("hidden");
             step1.classList.remove("hidden");
-            
+
             // Show all the elements that were hidden
             tab.classList.remove("hidden");
             loginTitle.classList.remove("hidden");
@@ -747,18 +1261,28 @@
             altLogin.classList.remove("hidden");
             socialLogin.classList.remove("hidden");
             signupLink.classList.remove("hidden");
-            
+
             // Reset inputs
             emailInput.value = "";
             passwordInput.value = "";
             emailCodeInput.value = "";
             smsCodeInput.value = "";
-            
+
+            // Reset verification wrappers
+            emailVerificationWrapper.classList.remove("focused", "error");
+            smsVerificationWrapper.classList.remove("focused", "error");
+            emailVerificationMessage.textContent =
+              "A verification code will be sent to da**@**.com.";
+            emailVerificationMessage.classList.add("success");
+            emailVerificationMessage.classList.remove("error");
+            smsVerificationMessage.style.display = "none";
+
+            // Reset submit button
+            securitySubmitBtn.classList.remove("active");
+
             // Update clear icon visibility
             toggleClearIcon(emailInput);
             toggleClearIcon(passwordInput);
-            toggleClearIcon(emailCodeInput);
-            toggleClearIcon(smsCodeInput);
           });
         }
 
@@ -768,7 +1292,7 @@
             // Hide subStep3 and show subStep1
             subStep3.classList.add("hidden");
             subStep1.classList.remove("hidden");
-            
+
             // Show all the elements that were hidden
             tab.classList.remove("hidden");
             loginTitle.classList.remove("hidden");
@@ -776,18 +1300,28 @@
             altLogin.classList.remove("hidden");
             socialLogin.classList.remove("hidden");
             signupLink.classList.remove("hidden");
-            
+
             // Reset inputs
             subEmailInput.value = "";
             subPasswordInput.value = "";
             subEmailCodeInput.value = "";
             subSmsCodeInput.value = "";
-            
+
+            // Reset verification wrappers
+            subEmailVerificationWrapper.classList.remove("focused", "error");
+            subSmsVerificationWrapper.classList.remove("focused", "error");
+            subEmailVerificationMessage.textContent =
+              "A verification code will be sent to da**@**.com.";
+            subEmailVerificationMessage.classList.add("success");
+            subEmailVerificationMessage.classList.remove("error");
+            subSmsVerificationMessage.style.display = "none";
+
+            // Reset submit button
+            subSecuritySubmitBtn.classList.remove("active");
+
             // Update clear icon visibility
             toggleClearIcon(subEmailInput);
             toggleClearIcon(subPasswordInput);
-            toggleClearIcon(subEmailCodeInput);
-            toggleClearIcon(subSmsCodeInput);
           });
         }
 
@@ -818,25 +1352,46 @@
         });
 
         // Verification code buttons for main form
-        document.getElementById('sendEmailBtn').addEventListener('click', () => {
-          startCountdown('sendEmailBtn', 60);
-          showToast('Verification code sent');
-        });
+        document
+          .getElementById("sendEmailBtn")
+          .addEventListener("click", () => {
+            startCountdown("sendEmailBtn", 60);
+            showToast("Verification code sent");
+          });
 
-        document.getElementById('sendSmsBtn').addEventListener('click', () => {
-          startCountdown('sendSmsBtn', 60);
-          showToast('Verification code sent');
+        document.getElementById("sendSmsBtn").addEventListener("click", () => {
+          startCountdown("sendSmsBtn", 60);
+          showToast("Verification code sent");
         });
 
         // Verification code buttons for sub-account form
-        document.getElementById('subSendEmailBtn').addEventListener('click', () => {
-          startCountdown('subSendEmailBtn', 60);
-          showToast('Verification code sent');
+        document
+          .getElementById("subSendEmailBtn")
+          .addEventListener("click", () => {
+            startCountdown("subSendEmailBtn", 60);
+            showToast("Verification code sent");
+          });
+
+        document
+          .getElementById("subSendSmsBtn")
+          .addEventListener("click", () => {
+            startCountdown("subSendSmsBtn", 60);
+            showToast("Verification code sent");
+          });
+
+        // Submit button click handlers
+        securitySubmitBtn.addEventListener("click", function () {
+          if (this.classList.contains("active")) {
+            showToast("Verification successful");
+            // Add your submission logic here
+          }
         });
 
-        document.getElementById('subSendSmsBtn').addEventListener('click', () => {
-          startCountdown('subSendSmsBtn', 60);
-          showToast('Verification code sent');
+        subSecuritySubmitBtn.addEventListener("click", function () {
+          if (this.classList.contains("active")) {
+            showToast("Verification successful");
+            // Add your submission logic here
+          }
         });
       });
 
