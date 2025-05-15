@@ -54,7 +54,7 @@ header {
 /* Main Content Styles */
 main {
   display: flex;
-  min-height: calc(100vh - 0px);
+  min-height: calc(120vh - 70px);
   padding-top: 60px;
 }
 
@@ -72,16 +72,16 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 685px;
   height: 100%;
   overflow: hidden;
 }
 
-.illustration-img {
+.illustration img {
   /* width: 100%; */
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   overflow: hidden;
 }
 
@@ -115,16 +115,20 @@ main {
 
 .right-section {
   flex: 1;
-  padding: 40px 60px;
+  /* padding: 40px 40px; */
+  /* padding-top: 40px; */
+  padding-right: 80px;
+  padding-left: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: 600px;
   /* align-items: center; */
+  margin-top: 30px;
 }
 
 .login-title {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 700;
   margin-bottom: 32px;
   text-align: left;
@@ -906,6 +910,9 @@ input:focus {
 
 
 @media (max-width: 480px) {
+  .right-section{
+    margin-top: 0px;
+  }
   /* .social-login {
     flex-direction: column;
     gap: 12px;
