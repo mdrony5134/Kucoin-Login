@@ -54,14 +54,14 @@ header {
 /* Main Content Styles */
 main {
   display: flex;
-  min-height: calc(120vh - 70px);
+  /* min-height: calc(120vh - 70px); */
   padding-top: 60px;
 }
 
 .left-section {
   /* flex: 1; */
   /* background-color: #f0f9f6; */
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -72,16 +72,16 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  width: 685px;
+  width: 866px;
   height: 100%;
   overflow: hidden;
 }
 
 .illustration img {
   /* width: 100%; */
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   overflow: hidden;
 }
 
@@ -116,7 +116,7 @@ main {
 .right-section {
   flex: 1;
   /* padding: 40px 40px; */
-  /* padding-top: 40px; */
+  padding-top: 120px;
   padding-right: 80px;
   padding-left: 40px;
   display: flex;
@@ -124,7 +124,8 @@ main {
   justify-content: center;
   max-width: 600px;
   /* align-items: center; */
-  margin-top: 30px;
+  /* margin-top: 30px; */
+  margin-left: 170px;
 }
 
 .login-title {
@@ -168,6 +169,10 @@ main {
     background: transparent;
   }
 
+  .custom-input-container input:focus{
+    background-color: none;
+  }
+
   .custom-input-container .input-icon {
     position: absolute;
     right: 0;
@@ -176,6 +181,18 @@ main {
   .custom-input-container .input-icon svg {
     fill: #00C087;
   }
+
+  /* input autofill color remove */
+
+  /* Remove autofill background color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #1a1a1a !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
 
 
 /* Tabs Styles */
@@ -269,7 +286,7 @@ input:focus {
 
 .clear-icon {
   position: absolute;
-  right: 48px;
+  right: 0px;
   cursor: pointer;
   display: flex;
   align-items: center;

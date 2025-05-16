@@ -75,6 +75,23 @@
       .round-checkbox {
         display: none;
       }
+      
+      /* Validation styles */
+      .error-message {
+        color: #ff3b30;
+        font-size: 12px;
+        margin-top: 3px;
+        display: none;
+        margin-bottom: 10px;
+      }
+      
+      .custom-fieldset.error {
+        border-color: #ff3b30;
+      }
+      
+      .custom-fieldset.error legend {
+        color: #ff3b30;
+      }
     </style>
   </head>
   <body>
@@ -129,8 +146,8 @@
           <form id="loginForm">
             <!-- Email/Phone Number Tab Content -->
             <div class="form-step" id="step1">
-              <fieldset class="custom-fieldset">
-                <legend>Email/Phone Number</legend>
+              <fieldset class="custom-fieldset" id="emailFieldset">
+                <legend id="lText">Email/Phone Number</legend>
                 <div class="custom-input-container">
                   <input
                     type="text"
@@ -138,9 +155,9 @@
                     placeholder="Email/Phone Number"
                     required
                   />
-                  <div class="input-icon">
+                  <!-- <div class="input-icon">
                     <i class="fa-solid fa-envelope" style="color: #00c087"></i>
-                  </div>
+                  </div> -->
                   <div class="clear-icon" style="display: none">
                     <i
                       class="fa-solid fa-times-circle"
@@ -149,6 +166,7 @@
                   </div>
                 </div>
               </fieldset>
+              <div id="emailError" class="error-message">Please enter a valid email address or phone number.</div>
 
               <button type="button" id="nextBtn" class="btn-primary">
                 Next
@@ -158,12 +176,12 @@
             <div class="form-step hidden" id="step2">
               <!-- Email/Phone Number Field -->
               <fieldset class="custom-fieldset">
-                <legend>Email/Phone Number</legend>
+                <legend id="lText2">Email/Phone Number</legend>
                 <div class="custom-input-container">
                   <input type="text" id="email2" disabled />
-                  <div class="input-icon">
+                  <!-- <div class="input-icon">
                     <i class="fa-solid fa-envelope" style="color: #00c087"></i>
-                  </div>
+                  </div> -->
                   <div class="clear-icon">
                     <i
                       class="fa-solid fa-times-circle"
@@ -174,7 +192,7 @@
               </fieldset>
 
               <!-- Password Field -->
-              <fieldset class="custom-fieldset">
+              <fieldset class="custom-fieldset" id="passwordFieldset">
                 <legend>Login Password</legend>
                 <div class="custom-input-container">
                   <input
@@ -194,6 +212,7 @@
                   </div>
                 </div>
               </fieldset>
+              <div id="passwordError" class="error-message">This field is required.</div>
 
               <div class="forgot-password">
                 <a href="#">Forgot password?</a>
@@ -321,7 +340,7 @@
 
             <!-- Sub-Account Tab Content -->
             <div class="form-step hidden" id="subStep1">
-              <fieldset class="custom-fieldset">
+              <fieldset class="custom-fieldset" id="subEmailFieldset">
                 <legend>Sub Account</legend>
                 <div class="custom-input-container">
                   <input
@@ -330,9 +349,9 @@
                     placeholder="Email/Phone Number"
                     required
                   />
-                  <div class="input-icon">
+                  <!-- <div class="input-icon">
                     <i class="fa-solid fa-envelope" style="color: #00c087"></i>
-                  </div>
+                  </div> -->
                   <div class="clear-icon" style="display: none">
                     <i
                       class="fa-solid fa-times-circle"
@@ -341,6 +360,7 @@
                   </div>
                 </div>
               </fieldset>
+              <div id="subEmailError" class="error-message">Please enter a valid email address or phone number.</div>
 
               <button type="button" id="subNextBtn" class="btn-primary">
                 Next
@@ -353,9 +373,9 @@
                 <legend>Email/Phone Number</legend>
                 <div class="custom-input-container">
                   <input type="text" id="subEmail2" disabled />
-                  <div class="input-icon">
+                  <!-- <div class="input-icon">
                     <i class="fa-solid fa-envelope" style="color: #00c087"></i>
-                  </div>
+                  </div> -->
                   <div class="clear-icon">
                     <i
                       class="fa-solid fa-times-circle"
@@ -366,7 +386,7 @@
               </fieldset>
 
               <!-- Password Field -->
-              <fieldset class="custom-fieldset">
+              <fieldset class="custom-fieldset" id="subPasswordFieldset">
                 <legend>Login Password</legend>
                 <div class="custom-input-container">
                   <input
@@ -386,6 +406,7 @@
                   </div>
                 </div>
               </fieldset>
+              <div id="subPasswordError" class="error-message">This field is required.</div>
 
               <div class="forgot-password">
                 <a href="#">Forgot password?</a>
@@ -612,6 +633,18 @@
         const subEmailCodeInput = document.getElementById("subEmailCode");
         const subSmsCodeInput = document.getElementById("subSmsCode");
 
+        // Get error message elements
+        const emailError = document.getElementById("emailError");
+        const passwordError = document.getElementById("passwordError");
+        const subEmailError = document.getElementById("subEmailError");
+        const subPasswordError = document.getElementById("subPasswordError");
+        
+        // Get fieldsets for styling
+        const emailFieldset = document.getElementById("emailFieldset");
+        const passwordFieldset = document.getElementById("passwordFieldset");
+        const subEmailFieldset = document.getElementById("subEmailFieldset");
+        const subPasswordFieldset = document.getElementById("subPasswordFieldset");
+
         // Get verification wrappers and messages
         const emailVerificationWrapper = document.getElementById(
           "emailVerificationWrapper"
@@ -801,6 +834,66 @@
             }
           }
         }
+        
+        // Function to validate email format
+        function validateEmail(email) {
+          // Simple email validation regex
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          // Simple phone number validation (at least 10 digits)
+          const phoneRegex = /^\d{10,}$/;
+          
+          return emailRegex.test(email) || phoneRegex.test(email);
+        }
+        
+        // Add email validation events
+        emailInput.addEventListener("input", function() {
+          if (this.value.trim() === "") {
+            emailError.style.display = "none";
+            emailFieldset.classList.remove("error");
+          } else if (!validateEmail(this.value.trim())) {
+            emailError.style.display = "block";
+            emailFieldset.classList.add("error");
+          } else {
+            emailError.style.display = "none";
+            emailFieldset.classList.remove("error");
+          }
+        });
+        
+        // Add sub-email validation events
+        subEmailInput.addEventListener("input", function() {
+          if (this.value.trim() === "") {
+            subEmailError.style.display = "none";
+            subEmailFieldset.classList.remove("error");
+          } else if (!validateEmail(this.value.trim())) {
+            subEmailError.style.display = "block";
+            subEmailFieldset.classList.add("error");
+          } else {
+            subEmailError.style.display = "none";
+            subEmailFieldset.classList.remove("error");
+          }
+        });
+        
+        // Add password validation events
+        passwordInput.addEventListener("input", function() {
+          if (this.value.trim() === "") {
+            passwordError.style.display = "block";
+            passwordFieldset.classList.add("error");
+          } else {
+            passwordError.style.display = "none";
+            passwordFieldset.classList.remove("error");
+          }
+        });
+        
+        // Add sub-password validation events
+        subPasswordInput.addEventListener("input", function() {
+          if (this.value.trim() === "") {
+            subPasswordError.style.display = "block";
+            subPasswordFieldset.classList.add("error");
+          } else {
+            subPasswordError.style.display = "none";
+            subPasswordFieldset.classList.remove("error");
+          }
+        });
 
         // Add focus and blur events for verification inputs
         emailCodeInput.addEventListener("focus", () => {
@@ -987,7 +1080,9 @@
 
         // Email/Phone Tab Next button click handler
         nextBtn.addEventListener("click", () => {
-          if (emailInput.value.trim() !== "") {
+          const emailValue = emailInput.value.trim();
+          
+          if (emailValue !== "" && validateEmail(emailValue)) {
             // Copy email value to step 2
             email2Input.value = emailInput.value;
 
@@ -997,15 +1092,22 @@
 
             // Update clear icon visibility
             toggleClearIcon(email2Input);
+            
+            // Reset any error states
+            emailError.style.display = "none";
+            emailFieldset.classList.remove("error");
           } else {
-            // Show error if email is empty
-            emailInput.style.borderColor = "red";
+            // Show error if email is empty or invalid
+            emailError.style.display = "block";
+            emailFieldset.classList.add("error");
           }
         });
 
         // Sub-Account Tab Next button click handler
         subNextBtn.addEventListener("click", () => {
-          if (subEmailInput.value.trim() !== "") {
+          const subEmailValue = subEmailInput.value.trim();
+          
+          if (subEmailValue !== "" && validateEmail(subEmailValue)) {
             // Copy email value to subStep2
             subEmail2Input.value = subEmailInput.value;
 
@@ -1015,18 +1117,23 @@
 
             // Update clear icon visibility
             toggleClearIcon(subEmail2Input);
+            
+            // Reset any error states
+            subEmailError.style.display = "none";
+            subEmailFieldset.classList.remove("error");
           } else {
-            // Show error if email is empty
-            subEmailInput.style.borderColor = "red";
+            // Show error if email is empty or invalid
+            subEmailError.style.display = "block";
+            subEmailFieldset.classList.add("error");
           }
         });
 
         // Sub-Account Login button click handler
         subLoginBtn.addEventListener("click", () => {
-          if (
-            subEmail2Input.value.trim() !== "" &&
-            subPasswordInput.value.trim() !== ""
-          ) {
+          const subEmailValue = subEmail2Input.value.trim();
+          const subPasswordValue = subPasswordInput.value.trim();
+          
+          if (subEmailValue !== "" && subPasswordValue !== "") {
             // Hide subStep2 and show subStep3
             subStep2.classList.add("hidden");
             tab.classList.add("hidden");
@@ -1041,8 +1148,11 @@
             const maskedEmail = maskEmail(subEmail2Input.value);
             subEmailVerificationMessage.textContent = `A verification code will be sent to ${maskedEmail}.`;
           } else {
-            // Show error if fields are empty
-            alert("Please fill in both fields.");
+            // Show error if password is empty
+            if (subPasswordValue === "") {
+              subPasswordError.style.display = "block";
+              subPasswordFieldset.classList.add("error");
+            }
           }
         });
 
@@ -1203,13 +1313,18 @@
 
         loginForm.addEventListener("click", (e) => {
           e.preventDefault();
+          
+          const emailValue = email2Input.value.trim();
+          const passwordValue = passwordInput.value.trim();
 
-          // Optional: basic validation
-          if (
-            email2Input.value.trim() === "" ||
-            passwordInput.value.trim() === ""
-          ) {
-            alert("Please fill in both fields.");
+          // Basic validation
+          if (emailValue === "") {
+            return;
+          }
+          
+          if (passwordValue === "") {
+            passwordError.style.display = "block";
+            passwordFieldset.classList.add("error");
             return;
           }
 
