@@ -92,6 +92,25 @@
       .custom-fieldset.error legend {
         color: #ff3b30;
       }
+
+      /* Countdown timer styles */
+      .countdown-timer {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .resend-button {
+        display: none;
+        background-color: transparent;
+        border: none;
+        color: #00c087;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 5px;
+        text-decoration: underline;
+      }
     </style>
   </head>
   <body>
@@ -238,7 +257,7 @@
                 </p>
 
                 <!-- Email Verification -->
-                <div class="verification-field">
+                <div class="verification-field" id="emailVerificationField">
                   <span id="emailVerificationLabel" class="verification-label"
                     >Email Verification Code</span
                   >
@@ -250,15 +269,10 @@
                       type="text"
                       id="emailCode"
                       class="verification-input"
-                      
                     />
-                    <button
-                      type="button"
-                      class="verification-send-btn"
-                      id="sendEmailBtn"
-                    >
-                      Send
-                    </button>
+                    <div class="countdown-timer" id="emailCountdownTimer">
+                    <span id="emailCountdown">60</span>s
+                  </div>
                   </div>
                   <p
                     class="verification-message success"
@@ -266,10 +280,16 @@
                   >
                     A verification code will be sent to da**@**.com.
                   </p>
+                  <!-- <div class="countdown-timer" id="emailCountdownTimer">
+                    Resend in <span id="emailCountdown">60</span>s
+                  </div> -->
+                  <button type="button" class="resend-button" id="emailResendButton">
+                    Send again
+                  </button>
                 </div>
 
                 <!-- SMS Verification -->
-                <div class="verification-field">
+                <div class="verification-field" id="phoneVerificationField">
                   <span id="smsVerificationLabel" class="verification-label">SMS Verification Code</span>
                   <div
                     class="verification-input-wrapper"
@@ -279,7 +299,6 @@
                       type="text"
                       id="smsCode"
                       class="verification-input"
-                     
                     />
                     <button
                       type="button"
@@ -295,6 +314,12 @@
                   >
                     Invalid input.
                   </p>
+                  <div class="countdown-timer" id="smsCountdownTimer">
+                    Resend in <span id="smsCountdown">60</span>s
+                  </div>
+                  <button type="button" class="resend-button" id="smsResendButton">
+                    Send again
+                  </button>
                 </div>
 
                 <!-- Trust Device Checkbox -->
@@ -645,6 +670,10 @@
         const subEmailFieldset = document.getElementById("subEmailFieldset");
         const subPasswordFieldset = document.getElementById("subPasswordFieldset");
 
+        // Get verification fields
+        const emailVerificationField = document.getElementById("emailVerificationField");
+        const phoneVerificationField = document.getElementById("phoneVerificationField");
+
         // Get verification wrappers and messages
         const emailVerificationWrapper = document.getElementById(
           "emailVerificationWrapper"
@@ -676,6 +705,14 @@
         const subSmsVerificationMessage = document.getElementById(
           "subSmsVerificationMessage"
         );
+
+        // Get countdown elements
+        const emailCountdownTimer = document.getElementById("emailCountdownTimer");
+        const smsCountdownTimer = document.getElementById("smsCountdownTimer");
+        const emailCountdown = document.getElementById("emailCountdown");
+        const smsCountdown = document.getElementById("smsCountdown");
+        const emailResendButton = document.getElementById("emailResendButton");
+        const smsResendButton = document.getElementById("smsResendButton");
 
         // Get submit buttons
         const securitySubmitBtn = document.getElementById("securitySubmitBtn");
@@ -760,20 +797,29 @@
           qrLoading.classList.remove("hidden");
           qrCodeImage.classList.add("hidden");
 
-          // Simulate loading delay for exactly 5 seconds
+          // Simulate loading delay for exactly 3 seconds
           setTimeout(() => {
             // Hide loading spinner and show QR code
             qrLoading.classList.add("hidden");
             qrCodeImage.classList.remove("hidden");
-          }, 3000); // 5 seconds loading time
+          }, 3000); // 3 seconds loading time
         }
 
         // Function to validate verification codes and update submit button
         function validateVerificationCodes() {
-          const emailCodeValue = emailCodeInput.value.trim();
-          const smsCodeValue = smsCodeInput.value.trim();
-
-          if (emailCodeValue !== "" && smsCodeValue !== "") {
+          let isValid = false;
+          
+          // Check if email verification field is visible
+          if (!emailVerificationField.classList.contains('hidden')) {
+            isValid = emailCodeInput.value.trim() !== "";
+          }
+          
+          // Check if phone verification field is visible
+          if (!phoneVerificationField.classList.contains('hidden')) {
+            isValid = smsCodeInput.value.trim() !== "";
+          }
+          
+          if (isValid) {
             securitySubmitBtn.classList.add("active");
           } else {
             securitySubmitBtn.classList.remove("active");
@@ -835,14 +881,21 @@
           }
         }
         
-        // Function to validate email format
-        function validateEmail(email) {
-          // Simple email validation regex
+        // Function to check if input is an email
+        function isEmail(input) {
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          // Simple phone number validation (at least 10 digits)
+          return emailRegex.test(input);
+        }
+        
+        // Function to check if input is a phone number
+        function isPhoneNumber(input) {
           const phoneRegex = /^\d{10,}$/;
-          
-          return emailRegex.test(email) || phoneRegex.test(email);
+          return phoneRegex.test(input);
+        }
+        
+        // Function to validate email or phone format
+        function validateEmailOrPhone(input) {
+          return isEmail(input) || isPhoneNumber(input);
         }
         
         // Add email validation events
@@ -850,7 +903,7 @@
           if (this.value.trim() === "") {
             emailError.style.display = "none";
             emailFieldset.classList.remove("error");
-          } else if (!validateEmail(this.value.trim())) {
+          } else if (!validateEmailOrPhone(this.value.trim())) {
             emailError.style.display = "block";
             emailFieldset.classList.add("error");
           } else {
@@ -864,7 +917,7 @@
           if (this.value.trim() === "") {
             subEmailError.style.display = "none";
             subEmailFieldset.classList.remove("error");
-          } else if (!validateEmail(this.value.trim())) {
+          } else if (!validateEmailOrPhone(this.value.trim())) {
             subEmailError.style.display = "block";
             subEmailFieldset.classList.add("error");
           } else {
@@ -899,9 +952,9 @@
         emailCodeInput.addEventListener("focus", () => {
           emailVerificationWrapper.classList.add("focused");
           emailVerificationWrapper.classList.remove("error");
-            emailVerificationLabel.classList.add("focused");
-            emailVerificationLabel.classList.remove("error");
-          smsVerificationMessage.style.display = "none";
+          emailVerificationLabel.classList.add("focused");
+          emailVerificationLabel.classList.remove("error");
+          emailVerificationMessage.style.display = "block";
         });
 
         emailCodeInput.addEventListener("blur", () => {
@@ -928,7 +981,7 @@
           smsVerificationWrapper.classList.remove("error");
           smsVerificationLabel.classList.add("focused");
           smsVerificationLabel.classList.remove("error");
-          smsVerificationMessage.style.display = "none";
+          smsVerificationMessage.style.display = "block";
         });
 
         smsCodeInput.addEventListener("blur", () => {
@@ -938,9 +991,12 @@
             smsVerificationWrapper.classList.add("error");
             smsVerificationLabel.classList.add("error");
             smsVerificationMessage.textContent = "Invalid input.";
-            smsVerificationMessage.style.display = "block";
+            smsVerificationMessage.classList.add("error");
+            smsVerificationMessage.classList.remove("success");
           } else {
-            smsVerificationMessage.style.display = "none";
+            smsVerificationMessage.textContent = `A verification code will be sent to ${maskEmail(email2Input.value)}.`;
+            smsVerificationMessage.classList.remove("error");
+            smsVerificationMessage.classList.add("success");
           }
           validateVerificationCodes();
         });
@@ -1029,7 +1085,7 @@
               signupLink.classList.remove("hidden");
             } else if (tabType === "qrcode") {
               qrStep.classList.remove("hidden");
-              loadQRCode(); // Start loading QR code with 5 second delay
+              loadQRCode(); // Start loading QR code with 3 second delay
               divider.classList.add("hidden");
               altLogin.classList.add("hidden");
               socialLogin.classList.add("hidden");
@@ -1082,7 +1138,7 @@
         nextBtn.addEventListener("click", () => {
           const emailValue = emailInput.value.trim();
           
-          if (emailValue !== "" && validateEmail(emailValue)) {
+          if (emailValue !== "" && validateEmailOrPhone(emailValue)) {
             // Copy email value to step 2
             email2Input.value = emailInput.value;
 
@@ -1096,6 +1152,11 @@
             // Reset any error states
             emailError.style.display = "none";
             emailFieldset.classList.remove("error");
+            
+            // Set autofocus on password field
+            setTimeout(() => {
+              passwordInput.focus();
+            }, 100);
           } else {
             // Show error if email is empty or invalid
             emailError.style.display = "block";
@@ -1107,7 +1168,7 @@
         subNextBtn.addEventListener("click", () => {
           const subEmailValue = subEmailInput.value.trim();
           
-          if (subEmailValue !== "" && validateEmail(subEmailValue)) {
+          if (subEmailValue !== "" && validateEmailOrPhone(subEmailValue)) {
             // Copy email value to subStep2
             subEmail2Input.value = subEmailInput.value;
 
@@ -1121,6 +1182,11 @@
             // Reset any error states
             subEmailError.style.display = "none";
             subEmailFieldset.classList.remove("error");
+            
+            // Set autofocus on password field
+            setTimeout(() => {
+              subPasswordInput.focus();
+            }, 100);
           } else {
             // Show error if email is empty or invalid
             subEmailError.style.display = "block";
@@ -1263,6 +1329,16 @@
             // Update clear icon visibility
             toggleClearIcon(emailInput);
             toggleClearIcon(passwordInput);
+            
+            // Reset countdown timers
+            clearInterval(emailCountdownInterval);
+            clearInterval(smsCountdownInterval);
+            emailCountdown.textContent = "60";
+            smsCountdown.textContent = "60";
+            emailCountdownTimer.style.display = "block";
+            smsCountdownTimer.style.display = "block";
+            emailResendButton.style.display = "none";
+            smsResendButton.style.display = "none";
           });
         }
 
@@ -1338,21 +1414,128 @@
           signupLink.classList.add("hidden");
           step3.classList.remove("hidden");
           
-          // Update the verification message with the masked email
-          const maskedEmail = maskEmail(email2Input.value);
-          emailVerificationMessage.textContent = `A verification code will be sent to ${maskedEmail}.`;
+          // Show/hide verification fields based on input type
+          if (isEmail(emailValue)) {
+            // Show email verification, hide phone verification
+            emailVerificationField.style.display = "block";
+            phoneVerificationField.style.display = "none";
+            
+            // Update the verification message with the masked email
+            const maskedEmail = maskEmail(emailValue);
+            emailVerificationMessage.textContent = `A verification code will be sent to ${maskedEmail}.`;
+            
+            // Start countdown for email verification
+            startEmailCountdown();
+          } else if (isPhoneNumber(emailValue)) {
+            // Show phone verification, hide email verification
+            emailVerificationField.style.display = "none";
+            phoneVerificationField.style.display = "block";
+            
+            // Update the verification message with the masked phone
+            const maskedPhone = maskEmail(emailValue);
+            smsVerificationMessage.textContent = `A verification code will be sent to ${maskedPhone}.`;
+            smsVerificationMessage.classList.remove("error");
+            smsVerificationMessage.classList.add("success");
+            smsVerificationMessage.style.display = "block";
+            
+            // Start countdown for SMS verification
+            startSmsCountdown();
+          } else {
+            // Show both (fallback)
+            emailVerificationField.style.display = "block";
+            phoneVerificationField.style.display = "block";
+            
+            // Update both verification messages
+            const maskedValue = maskEmail(emailValue);
+            emailVerificationMessage.textContent = `A verification code will be sent to ${maskedValue}.`;
+            smsVerificationMessage.textContent = `A verification code will be sent to ${maskedValue}.`;
+            smsVerificationMessage.classList.remove("error");
+            smsVerificationMessage.classList.add("success");
+            smsVerificationMessage.style.display = "block";
+            
+            // Start both countdowns
+            startEmailCountdown();
+            startSmsCountdown();
+          }
         });
+
+        // Email countdown variables
+        let emailCountdownInterval;
+        let emailSeconds = 60;
+        
+        // SMS countdown variables
+        let smsCountdownInterval;
+        let smsSeconds = 60;
+        
+        // Function to start email verification countdown
+        function startEmailCountdown() {
+          // Reset countdown
+          emailSeconds = 60;
+          emailCountdown.textContent = emailSeconds;
+          emailCountdownTimer.style.display = "block";
+          emailResendButton.style.display = "none";
+          
+          // Clear any existing interval
+          clearInterval(emailCountdownInterval);
+          
+          // Start new countdown
+          emailCountdownInterval = setInterval(() => {
+            emailSeconds--;
+            emailCountdown.textContent = emailSeconds;
+            
+            if (emailSeconds <= 0) {
+              clearInterval(emailCountdownInterval);
+              emailCountdownTimer.style.display = "none";
+              emailResendButton.style.display = "block";
+            }
+          }, 1000);
+        }
+        
+        // Function to start SMS verification countdown
+        function startSmsCountdown() {
+          // Reset countdown
+          smsSeconds = 60;
+          smsCountdown.textContent = smsSeconds;
+          smsCountdownTimer.style.display = "block";
+          smsResendButton.style.display = "none";
+          
+          // Clear any existing interval
+          clearInterval(smsCountdownInterval);
+          
+          // Start new countdown
+          smsCountdownInterval = setInterval(() => {
+            smsSeconds--;
+            smsCountdown.textContent = smsSeconds;
+            
+            if (smsSeconds <= 0) {
+              clearInterval(smsCountdownInterval);
+              smsCountdownTimer.style.display = "none";
+              smsResendButton.style.display = "block";
+            }
+          }, 1000);
+        }
 
         // Verification code buttons for main form
         document
           .getElementById("sendEmailBtn")
           .addEventListener("click", () => {
-            startCountdown("sendEmailBtn", 60);
+            startEmailCountdown();
             showToast("Verification code sent");
           });
 
         document.getElementById("sendSmsBtn").addEventListener("click", () => {
-          startCountdown("sendSmsBtn", 60);
+          startSmsCountdown();
+          showToast("Verification code sent");
+        });
+        
+        // Resend buttons for verification codes
+        emailResendButton.addEventListener("click", () => {
+          startEmailCountdown();
+          showToast("Verification code sent");
+        });
+        
+        smsResendButton.addEventListener("click", () => {
+          startSmsCountdown();
           showToast("Verification code sent");
         });
 
