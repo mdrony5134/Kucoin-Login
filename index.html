@@ -300,13 +300,9 @@
                       id="smsCode"
                       class="verification-input"
                     />
-                    <button
-                      type="button"
-                      class="verification-send-btn"
-                      id="sendSmsBtn"
-                    >
-                      Send
-                    </button>
+                    <div class="countdown-timer" id="smsCountdownTimer">
+                    <span id="smsCountdown">60</span>s
+                  </div>
                   </div>
                   <p
                     class="verification-message error"
@@ -314,9 +310,7 @@
                   >
                     Invalid input.
                   </p>
-                  <div class="countdown-timer" id="smsCountdownTimer">
-                    Resend in <span id="smsCountdown">60</span>s
-                  </div>
+                  
                   <button type="button" class="resend-button" id="smsResendButton">
                     Send again
                   </button>
