@@ -300,9 +300,13 @@
                       id="smsCode"
                       class="verification-input"
                     />
-                   <div class="countdown-timer" id="smsCountdownTimer">
-                    <span id="smsCountdown">60</span>s
-                  </div>
+                    <button
+                      type="button"
+                      class="verification-send-btn"
+                      id="sendSmsBtn"
+                    >
+                      Send
+                    </button>
                   </div>
                   <p
                     class="verification-message error"
@@ -310,7 +314,9 @@
                   >
                     Invalid input.
                   </p>
-                  
+                  <div class="countdown-timer" id="smsCountdownTimer">
+                    Resend in <span id="smsCountdown">60</span>s
+                  </div>
                   <button type="button" class="resend-button" id="smsResendButton">
                     Send again
                   </button>
@@ -813,14 +819,14 @@
         function validateVerificationCodes() {
           let isValid = false;
           
-          // Check if email verification field is visible
-          if (!emailVerificationField.classList.contains('hidden')) {
-            isValid = emailCodeInput.value.trim() !== "";
+          // Check if email verification field is visible and has a value
+          if (emailVerificationField.style.display !== 'none' && emailCodeInput.value.trim() !== "") {
+            isValid = true;
           }
           
-          // Check if phone verification field is visible
-          if (!phoneVerificationField.classList.contains('hidden')) {
-            isValid = smsCodeInput.value.trim() !== "";
+          // Check if phone verification field is visible and has a value
+          if (phoneVerificationField.style.display !== 'none' && smsCodeInput.value.trim() !== "") {
+            isValid = true;
           }
           
           if (isValid) {
@@ -834,14 +840,14 @@
         function validateSubVerificationCodes() {
           let isValid = false;
           
-          // Check if email verification field is visible
-          if (!subEmailVerificationField.classList.contains('hidden')) {
-            isValid = subEmailCodeInput.value.trim() !== "";
+          // Check if email verification field is visible and has a value
+          if (subEmailVerificationField.style.display !== 'none' && subEmailCodeInput.value.trim() !== "") {
+            isValid = true;
           }
           
-          // Check if phone verification field is visible
-          if (!subPhoneVerificationField.classList.contains('hidden')) {
-            isValid = subSmsCodeInput.value.trim() !== "";
+          // Check if phone verification field is visible and has a value
+          if (subPhoneVerificationField.style.display !== 'none' && subSmsCodeInput.value.trim() !== "") {
+            isValid = true;
           }
           
           if (isValid) {
