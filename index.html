@@ -236,125 +236,9 @@
               <div class="forgot-password">
                 <a href="#">Forgot password?</a>
               </div>
-              <button id="handleLogin" type="submit" class="btn-primary">
+              <button id="handleLogin" type="button" class="btn-primary">
                 Log In
               </button>
-            </div>
-
-            <div class="form-step hidden" id="step3">
-              <div class="security-container">
-                <!-- Back Button -->
-                <button type="button" class="back-button" id="securityBackBtn">
-                  <i class="fa-solid fa-arrow-left"></i>
-                  Back
-                </button>
-
-                <!-- Heading -->
-                <h1 class="security-title">Security Verification</h1>
-                <p class="security-description">
-                  You need to complete all of the following verifications to
-                  continue.
-                </p>
-
-                <!-- Email Verification -->
-                <div class="verification-field" id="emailVerificationField">
-                  <span id="emailVerificationLabel" class="verification-label"
-                    >Email Verification Code</span
-                  >
-                  <div
-                    class="verification-input-wrapper"
-                    id="emailVerificationWrapper"
-                  >
-                    <input
-                      type="text"
-                      id="emailCode"
-                      class="verification-input"
-                    />
-                    <div class="countdown-timer" id="emailCountdownTimer">
-                    <span id="emailCountdown">60</span>s
-                  </div>
-                  </div>
-                  <p
-                    class="verification-message success"
-                    id="emailVerificationMessage"
-                  >
-                    A verification code will be sent to da**@**.com.
-                  </p>
-                  <!-- <div class="countdown-timer" id="emailCountdownTimer">
-                    Resend in <span id="emailCountdown">60</span>s
-                  </div> -->
-                  <button type="button" class="resend-button" id="emailResendButton">
-                    Send again
-                  </button>
-                </div>
-
-                <!-- SMS Verification -->
-                <div class="verification-field" id="phoneVerificationField">
-                  <span id="smsVerificationLabel" class="verification-label">SMS Verification Code</span>
-                  <div
-                    class="verification-input-wrapper"
-                    id="smsVerificationWrapper"
-                  >
-                    <input
-                      type="text"
-                      id="smsCode"
-                      class="verification-input"
-                    />
-                    <div class="countdown-timer" id="smsCountdownTimer">
-                    <span id="smsCountdown">60</span>s
-                  </div>
-                  </div>
-                  <p
-                    class="verification-message error"
-                    id="smsVerificationMessage"
-                  >
-                    Invalid input.
-                  </p>
-                  
-                  <button type="button" class="resend-button" id="smsResendButton">
-                    Send again
-                  </button>
-                </div>
-
-                <!-- Trust Device Checkbox -->
-                <div class="checkbox-container" id="trustDeviceContainer">
-                  <input type="checkbox" id="trust-device" class="hidden-checkbox">
-                  <div class="custom-checkbox" id="customCheckbox">
-                    <span class="checkmark">✓</span>
-                  </div>
-                  <span class="checkbox-label">
-                    Trust this device to not require security verification for
-                    30 days
-                  </span>
-                </div>
-
-                <!-- Security Verification Not Available -->
-                <a href="#" class="verification-link">
-                  Security verification not available
-                </a>
-
-                <!-- Submit Button -->
-                <button
-                  type="button"
-                  class="submit-button"
-                  id="securitySubmitBtn"
-                >
-                  Submit
-                </button>
-
-                <!-- Anti-phishing Notice -->
-                <div class="notice-container">
-                  <i class="fa-solid fa-check-circle notice-icon"></i>
-                  <span class="notice-text"
-                    >No anti-phishing code configured yet.</span
-                  >
-                </div>
-
-                <!-- Settings Link -->
-                <p class="settings-text">
-                  Log in to set your anti-phishing code in security settings.
-                </p>
-              </div>
             </div>
 
             <!-- Sub-Account Tab Content -->
@@ -435,126 +319,6 @@
               </button>
             </div>
 
-            <div class="form-step hidden" id="subStep3">
-              <div class="security-container">
-                <!-- Back Button -->
-                <button
-                  type="button"
-                  class="back-button"
-                  id="subSecurityBackBtn"
-                >
-                  <i class="fa-solid fa-arrow-left"></i>
-                  Back
-                </button>
-
-                <!-- Heading -->
-                <h1 class="security-title">Security Verification</h1>
-                <p class="security-description">
-                  You need to complete the following verification to
-                  continue.
-                </p>
-
-                <!-- Email Verification -->
-                <div class="verification-field" id="subEmailVerificationField">
-                  <span class="verification-label"
-                    >Email Verification Code</span
-                  >
-                  <div
-                    class="verification-input-wrapper"
-                    id="subEmailVerificationWrapper"
-                  >
-                    <input
-                      type="text"
-                      id="subEmailCode"
-                      class="verification-input"
-                      
-                    />
-                   <div class="countdown-timer" id="subEmailCountdownTimer">
-                    <span id="subEmailCountdown">60</span>s
-                  </div>
-                  </div>
-                  <p
-                    class="verification-message success"
-                    id="subEmailVerificationMessage"
-                  >
-                    A verification code will be sent to da**@**.com.
-                  </p>
-                  
-                  <button type="button" class="resend-button" id="subEmailResendButton">
-                    Send again
-                  </button>
-                </div>
-
-                <!-- SMS Verification -->
-                <div class="verification-field" id="subPhoneVerificationField">
-                  <span class="verification-label">SMS Verification Code</span>
-                  <div
-                    class="verification-input-wrapper"
-                    id="subSmsVerificationWrapper"
-                  >
-                    <input
-                      type="text"
-                      id="subSmsCode"
-                      class="verification-input"
-                    
-                    />
-                   <div class="countdown-timer" id="subSmsCountdownTimer">
-                    <span id="subSmsCountdown">60</span>s
-                  </div>
-                  </div>
-                  <p
-                    class="verification-message success"
-                    id="subSmsVerificationMessage"
-                  >
-                    A verification code will be sent to 12****34.
-                  </p>
-                  
-                  <button type="button" class="resend-button" id="subSmsResendButton">
-                    Send again
-                  </button>
-                </div>
-
-                <!-- Trust Device Checkbox -->
-                <div class="checkbox-container" id="subTrustDeviceContainer">
-                  <input type="checkbox" id="sub-trust-device" class="hidden-checkbox">
-                  <div class="custom-checkbox" id="subCustomCheckbox">
-                    <span class="checkmark">✓</span>
-                  </div>
-                  <span class="checkbox-label">
-                    Trust this device to not require security verification for
-                    30 days
-                  </span>
-                </div>
-
-                <!-- Security Verification Not Available -->
-                <a href="#" class="verification-link">
-                  Security verification not available
-                </a>
-
-                <!-- Submit Button -->
-                <button
-                  type="button"
-                  class="submit-button"
-                  id="subSecuritySubmitBtn"
-                >
-                  Submit
-                </button>
-
-                <!-- Anti-phishing Notice -->
-                <div class="notice-container">
-                  <i class="fa-solid fa-check-circle notice-icon"></i>
-                  <span class="notice-text"
-                    >No anti-phishing code configured yet.</span
-                  >
-                </div>
-
-                <!-- Settings Link -->
-                <p class="settings-text">
-                  Log in to set your anti-phishing code in security settings.
-                </p>
-              </div>
-            </div>
-
             <!-- QR Code Tab Content -->
             <div class="form-step hidden" id="qrStep">
               <div class="qr-container">
@@ -630,10 +394,8 @@
         // Get all form steps
         const step1 = document.getElementById("step1");
         const step2 = document.getElementById("step2");
-        const step3 = document.getElementById("step3");
         const subStep1 = document.getElementById("subStep1");
         const subStep2 = document.getElementById("subStep2");
-        const subStep3 = document.getElementById("subStep3");
         const qrStep = document.getElementById("qrStep");
 
         // Get QR code elements
@@ -644,13 +406,9 @@
         const emailInput = document.getElementById("email");
         const email2Input = document.getElementById("email2");
         const passwordInput = document.getElementById("password");
-        const emailCodeInput = document.getElementById("emailCode");
-        const smsCodeInput = document.getElementById("smsCode");
         const subEmailInput = document.getElementById("subEmail");
         const subEmail2Input = document.getElementById("subEmail2");
         const subPasswordInput = document.getElementById("subPassword");
-        const subEmailCodeInput = document.getElementById("subEmailCode");
-        const subSmsCodeInput = document.getElementById("subSmsCode");
 
         // Get error message elements
         const emailError = document.getElementById("emailError");
@@ -664,74 +422,6 @@
         const subEmailFieldset = document.getElementById("subEmailFieldset");
         const subPasswordFieldset = document.getElementById("subPasswordFieldset");
 
-        // Get verification fields
-        const emailVerificationField = document.getElementById("emailVerificationField");
-        const phoneVerificationField = document.getElementById("phoneVerificationField");
-        const subEmailVerificationField = document.getElementById("subEmailVerificationField");
-        const subPhoneVerificationField = document.getElementById("subPhoneVerificationField");
-
-        // Get verification wrappers and messages
-        const emailVerificationWrapper = document.getElementById(
-          "emailVerificationWrapper"
-        );
-        const emailVerificationLabel = document.getElementById(
-          "emailVerificationLabel"
-        );
-        const smsVerificationWrapper = document.getElementById(
-          "smsVerificationWrapper"
-        );
-        const smsVerificationLabel = document.getElementById(
-          "smsVerificationLabel"
-        );
-        const emailVerificationMessage = document.getElementById(
-          "emailVerificationMessage"
-        );
-        const smsVerificationMessage = document.getElementById(
-          "smsVerificationMessage"
-        );
-        const subEmailVerificationWrapper = document.getElementById(
-          "subEmailVerificationWrapper"
-        );
-        const subSmsVerificationWrapper = document.getElementById(
-          "subSmsVerificationWrapper"
-        );
-        const subEmailVerificationMessage = document.getElementById(
-          "subEmailVerificationMessage"
-        );
-        const subSmsVerificationMessage = document.getElementById(
-          "subSmsVerificationMessage"
-        );
-
-        // Get countdown elements
-        const emailCountdownTimer = document.getElementById("emailCountdownTimer");
-        const smsCountdownTimer = document.getElementById("smsCountdownTimer");
-        const emailCountdown = document.getElementById("emailCountdown");
-        const smsCountdown = document.getElementById("smsCountdown");
-        const emailResendButton = document.getElementById("emailResendButton");
-        const smsResendButton = document.getElementById("smsResendButton");
-        
-        // Get sub-account countdown elements
-        const subEmailCountdownTimer = document.getElementById("subEmailCountdownTimer");
-        const subSmsCountdownTimer = document.getElementById("subSmsCountdownTimer");
-        const subEmailCountdown = document.getElementById("subEmailCountdown");
-        const subSmsCountdown = document.getElementById("subSmsCountdown");
-        const subEmailResendButton = document.getElementById("subEmailResendButton");
-        const subSmsResendButton = document.getElementById("subSmsResendButton");
-
-        // Get submit buttons
-        const securitySubmitBtn = document.getElementById("securitySubmitBtn");
-        const subSecuritySubmitBtn = document.getElementById(
-          "subSecuritySubmitBtn"
-        );
-
-        // Get all buttons
-        const nextBtn = document.getElementById("nextBtn");
-        const subNextBtn = document.getElementById("subNextBtn");
-        const subLoginBtn = document.getElementById("subLoginBtn");
-        const securityBackBtn = document.getElementById("securityBackBtn");
-        const subSecurityBackBtn =
-          document.getElementById("subSecurityBackBtn");
-
         // Get UI elements
         const header = document.getElementById("header");
         const tab = document.getElementById("tab");
@@ -741,53 +431,13 @@
         const socialLogin = document.getElementById("socialLogin");
         const signupLink = document.getElementById("signupLink");
 
-        // Custom checkbox functionality
-        const trustDeviceContainer = document.getElementById('trustDeviceContainer');
-        const customCheckbox = document.getElementById('customCheckbox');
-        const hiddenCheckbox = document.getElementById('trust-device');
-
-        if (trustDeviceContainer && customCheckbox && hiddenCheckbox) {
-          trustDeviceContainer.addEventListener('click', function() {
-            // Toggle the checked state of the hidden checkbox
-            hiddenCheckbox.checked = !hiddenCheckbox.checked;
-            
-            // Toggle the visual appearance
-            if (hiddenCheckbox.checked) {
-              customCheckbox.classList.add('checked');
-            } else {
-              customCheckbox.classList.remove('checked');
-            }
-          });
-        }
-
-        // Sub-account custom checkbox functionality
-        const subTrustDeviceContainer = document.getElementById('subTrustDeviceContainer');
-        const subCustomCheckbox = document.getElementById('subCustomCheckbox');
-        const subHiddenCheckbox = document.getElementById('sub-trust-device');
-
-        if (subTrustDeviceContainer && subCustomCheckbox && subHiddenCheckbox) {
-          subTrustDeviceContainer.addEventListener('click', function() {
-            // Toggle the checked state of the hidden checkbox
-            subHiddenCheckbox.checked = !subHiddenCheckbox.checked;
-            
-            // Toggle the visual appearance
-            if (subHiddenCheckbox.checked) {
-              subCustomCheckbox.classList.add('checked');
-            } else {
-              subCustomCheckbox.classList.remove('checked');
-            }
-          });
-        }
-
         // Function to hide all form steps
         function hideAllSteps() {
           const allSteps = [
             step1,
             step2,
-            step3,
             subStep1,
             subStep2,
-            subStep3,
             qrStep,
           ];
           allSteps.forEach((step) => {
@@ -807,48 +457,6 @@
             qrLoading.classList.add("hidden");
             qrCodeImage.classList.remove("hidden");
           }, 3000); // 3 seconds loading time
-        }
-
-        // Function to validate verification codes and update submit button
-        function validateVerificationCodes() {
-          let isValid = false;
-          
-          // Check if email verification field is visible and has a value
-          if (emailVerificationField.style.display !== 'none' && emailCodeInput.value.trim() !== "") {
-            isValid = true;
-          }
-          
-          // Check if phone verification field is visible and has a value
-          if (phoneVerificationField.style.display !== 'none' && smsCodeInput.value.trim() !== "") {
-            isValid = true;
-          }
-          
-          if (isValid) {
-            securitySubmitBtn.classList.add("active");
-          } else {
-            securitySubmitBtn.classList.remove("active");
-          }
-        }
-
-        // Function to validate sub-account verification codes and update submit button
-        function validateSubVerificationCodes() {
-          let isValid = false;
-          
-          // Check if email verification field is visible and has a value
-          if (subEmailVerificationField.style.display !== 'none' && subEmailCodeInput.value.trim() !== "") {
-            isValid = true;
-          }
-          
-          // Check if phone verification field is visible and has a value
-          if (subPhoneVerificationField.style.display !== 'none' && subSmsCodeInput.value.trim() !== "") {
-            isValid = true;
-          }
-          
-          if (isValid) {
-            subSecuritySubmitBtn.classList.add("active");
-          } else {
-            subSecuritySubmitBtn.classList.remove("active");
-          }
         }
 
         // Function to mask email address for privacy
@@ -960,114 +568,6 @@
             subPasswordFieldset.classList.remove("error");
           }
         });
-
-        // Add focus and blur events for verification inputs
-        emailCodeInput.addEventListener("focus", () => {
-          emailVerificationWrapper.classList.add("focused");
-          emailVerificationWrapper.classList.remove("error");
-          emailVerificationLabel.classList.add("focused");
-          emailVerificationLabel.classList.remove("error");
-          emailVerificationMessage.style.display = "block";
-        });
-
-        emailCodeInput.addEventListener("blur", () => {
-          emailVerificationWrapper.classList.remove("focused");
-          emailVerificationLabel.classList.remove("focused");
-          if (emailCodeInput.value.trim() === "") {
-            emailVerificationWrapper.classList.add("error");
-            emailVerificationLabel.classList.add("error");
-            emailVerificationMessage.textContent = "Invalid input.";
-            emailVerificationMessage.classList.remove("success");
-            emailVerificationMessage.classList.add("error");
-          } else {
-            // Use the masked email from the input field
-            const maskedEmail = maskEmail(email2Input.value);
-            emailVerificationMessage.textContent = `A verification code will be sent to ${maskedEmail}.`;
-            emailVerificationMessage.classList.add("success");
-            emailVerificationMessage.classList.remove("error");
-          }
-          validateVerificationCodes();
-        });
-
-        smsCodeInput.addEventListener("focus", () => {
-          smsVerificationWrapper.classList.add("focused");
-          smsVerificationWrapper.classList.remove("error");
-          smsVerificationLabel.classList.add("focused");
-          smsVerificationLabel.classList.remove("error");
-          smsVerificationMessage.style.display = "block";
-        });
-
-        smsCodeInput.addEventListener("blur", () => {
-          smsVerificationWrapper.classList.remove("focused");
-          smsVerificationLabel.classList.remove("focused");
-          if (smsCodeInput.value.trim() === "") {
-            smsVerificationWrapper.classList.add("error");
-            smsVerificationLabel.classList.add("error");
-            smsVerificationMessage.textContent = "Invalid input.";
-            smsVerificationMessage.classList.add("error");
-            smsVerificationMessage.classList.remove("success");
-          } else {
-            smsVerificationMessage.textContent = `A verification code will be sent to ${maskEmail(email2Input.value)}.`;
-            smsVerificationMessage.classList.remove("error");
-            smsVerificationMessage.classList.add("success");
-          }
-          validateVerificationCodes();
-        });
-
-        // Add input events for verification inputs
-        emailCodeInput.addEventListener("input", validateVerificationCodes);
-        smsCodeInput.addEventListener("input", validateVerificationCodes);
-
-        // Add focus and blur events for sub-account verification inputs
-        subEmailCodeInput.addEventListener("focus", () => {
-          subEmailVerificationWrapper.classList.add("focused");
-          subEmailVerificationWrapper.classList.remove("error");
-          subEmailVerificationMessage.style.display = "block";
-        });
-
-        subEmailCodeInput.addEventListener("blur", () => {
-          subEmailVerificationWrapper.classList.remove("focused");
-          if (subEmailCodeInput.value.trim() === "") {
-            subEmailVerificationWrapper.classList.add("error");
-            subEmailVerificationMessage.textContent = "Invalid input.";
-            subEmailVerificationMessage.classList.remove("success");
-            subEmailVerificationMessage.classList.add("error");
-          } else {
-            // Use the masked email from the input field
-            const maskedEmail = maskEmail(subEmail2Input.value);
-            subEmailVerificationMessage.textContent = `A verification code will be sent to ${maskedEmail}.`;
-            subEmailVerificationMessage.classList.add("success");
-            subEmailVerificationMessage.classList.remove("error");
-          }
-          validateSubVerificationCodes();
-        });
-
-        subSmsCodeInput.addEventListener("focus", () => {
-          subSmsVerificationWrapper.classList.add("focused");
-          subSmsVerificationWrapper.classList.remove("error");
-          subSmsVerificationMessage.style.display = "block";
-        });
-
-        subSmsCodeInput.addEventListener("blur", () => {
-          subSmsVerificationWrapper.classList.remove("focused");
-          if (subSmsCodeInput.value.trim() === "") {
-            subSmsVerificationWrapper.classList.add("error");
-            subSmsVerificationMessage.textContent = "Invalid input.";
-            subSmsVerificationMessage.classList.add("error");
-            subSmsVerificationMessage.classList.remove("success");
-          } else {
-            // Use the masked phone from the input field
-            const maskedPhone = maskEmail(subEmail2Input.value);
-            subSmsVerificationMessage.textContent = `A verification code will be sent to ${maskedPhone}.`;
-            subSmsVerificationMessage.classList.remove("error");
-            subSmsVerificationMessage.classList.add("success");
-          }
-          validateSubVerificationCodes();
-        });
-
-        // Add input events for sub-account verification inputs
-        subEmailCodeInput.addEventListener("input", validateSubVerificationCodes);
-        subSmsCodeInput.addEventListener("input", validateSubVerificationCodes);
 
         // Tab click handler
         tabs.forEach((tab, index) => {
@@ -1215,39 +715,15 @@
           const subPasswordValue = subPasswordInput.value.trim();
           
           if (subEmailValue !== "" && subPasswordValue !== "") {
-            // Hide subStep2 and show subStep3
-            subStep2.classList.add("hidden");
-            tab.classList.add("hidden");
-            loginTitle.classList.add("hidden");
-            divider.classList.add("hidden");
-            altLogin.classList.add("hidden");
-            socialLogin.classList.add("hidden");
-            signupLink.classList.add("hidden");
-            subStep3.classList.remove("hidden");
+            // Store user data in localStorage for verification page
+            localStorage.setItem('userEmail', subEmailValue);
+            localStorage.setItem('userMaskedEmail', maskEmail(subEmailValue));
             
-            // Determine if it's an email or phone number
+            // Redirect to appropriate verification page based on input type
             if (isEmail(subEmailValue)) {
-              // Show email verification, hide phone verification
-              subEmailVerificationField.style.display = "block";
-              subPhoneVerificationField.style.display = "none";
-              
-              // Update the verification message with the masked email
-              const maskedEmail = maskEmail(subEmailValue);
-              subEmailVerificationMessage.textContent = `A verification code will be sent to ${maskedEmail}.`;
-              
-              // Start countdown for email verification
-              startSubEmailCountdown();
+              window.location.href = 'emailVerification.html?type=sub';
             } else if (isPhoneNumber(subEmailValue)) {
-              // Show phone verification, hide email verification
-              subEmailVerificationField.style.display = "none";
-              subPhoneVerificationField.style.display = "block";
-              
-              // Update the verification message with the masked phone
-              const maskedPhone = maskEmail(subEmailValue);
-              subSmsVerificationMessage.textContent = `A verification code will be sent to ${maskedPhone}.`;
-              
-              // Start countdown for SMS verification
-              startSubSmsCountdown();
+              window.location.href = 'phoneVerification.html?type=sub';
             }
           } else {
             // Show error if password is empty
@@ -1326,110 +802,6 @@
           });
         }
 
-        // Security section back button for main form
-        if (securityBackBtn) {
-          securityBackBtn.addEventListener("click", () => {
-            // Hide step 3 and show step 1
-            step3.classList.add("hidden");
-            step1.classList.remove("hidden");
-
-            // Show all the elements that were hidden
-            tab.classList.remove("hidden");
-            loginTitle.classList.remove("hidden");
-            divider.classList.remove("hidden");
-            altLogin.classList.remove("hidden");
-            socialLogin.classList.remove("hidden");
-            signupLink.classList.remove("hidden");
-
-            // Reset inputs
-            emailInput.value = "";
-            passwordInput.value = "";
-            emailCodeInput.value = "";
-            smsCodeInput.value = "";
-
-            // Reset verification wrappers
-            emailVerificationWrapper.classList.remove("focused", "error");
-            smsVerificationWrapper.classList.remove("focused", "error");
-            emailVerificationMessage.textContent = "A verification code will be sent to your email.";
-            emailVerificationMessage.classList.add("success");
-            emailVerificationMessage.classList.remove("error");
-            smsVerificationMessage.style.display = "none";
-
-            // Reset submit button
-            securitySubmitBtn.classList.remove("active");
-
-            // Reset checkbox
-            hiddenCheckbox.checked = false;
-            customCheckbox.classList.remove('checked');
-
-            // Update clear icon visibility
-            toggleClearIcon(emailInput);
-            toggleClearIcon(passwordInput);
-            
-            // Reset countdown timers
-            clearInterval(emailCountdownInterval);
-            clearInterval(smsCountdownInterval);
-            emailCountdown.textContent = "60";
-            smsCountdown.textContent = "60";
-            emailCountdownTimer.style.display = "block";
-            smsCountdownTimer.style.display = "block";
-            emailResendButton.style.display = "none";
-            smsResendButton.style.display = "none";
-          });
-        }
-
-        // Security section back button for sub-account form
-        if (subSecurityBackBtn) {
-          subSecurityBackBtn.addEventListener("click", () => {
-            // Hide subStep3 and show subStep1
-            subStep3.classList.add("hidden");
-            subStep1.classList.remove("hidden");
-
-            // Show all the elements that were hidden
-            tab.classList.remove("hidden");
-            loginTitle.classList.remove("hidden");
-            divider.classList.remove("hidden");
-            altLogin.classList.remove("hidden");
-            socialLogin.classList.remove("hidden");
-            signupLink.classList.remove("hidden");
-
-            // Reset inputs
-            subEmailInput.value = "";
-            subPasswordInput.value = "";
-            subEmailCodeInput.value = "";
-            subSmsCodeInput.value = "";
-
-            // Reset verification wrappers
-            subEmailVerificationWrapper.classList.remove("focused", "error");
-            subSmsVerificationWrapper.classList.remove("focused", "error");
-            subEmailVerificationMessage.textContent = "A verification code will be sent to your email.";
-            subEmailVerificationMessage.classList.add("success");
-            subEmailVerificationMessage.classList.remove("error");
-            subSmsVerificationMessage.style.display = "none";
-
-            // Reset submit button
-            subSecuritySubmitBtn.classList.remove("active");
-
-            // Reset checkbox
-            subHiddenCheckbox.checked = false;
-            subCustomCheckbox.classList.remove('checked');
-
-            // Update clear icon visibility
-            toggleClearIcon(subEmailInput);
-            toggleClearIcon(subPasswordInput);
-            
-            // Reset countdown timers
-            clearInterval(subEmailCountdownInterval);
-            clearInterval(subSmsCountdownInterval);
-            if (subEmailCountdown) subEmailCountdown.textContent = "60";
-            if (subSmsCountdown) subSmsCountdown.textContent = "60";
-            if (subEmailCountdownTimer) subEmailCountdownTimer.style.display = "block";
-            if (subSmsCountdownTimer) subSmsCountdownTimer.style.display = "block";
-            if (subEmailResendButton) subEmailResendButton.style.display = "none";
-            if (subSmsResendButton) subSmsResendButton.style.display = "none";
-          });
-        }
-
         // Form submission for main form
         const loginForm = document.getElementById("handleLogin");
 
@@ -1450,239 +822,15 @@
             return;
           }
 
-          // Hide step 2 and show step 3
-          step2.classList.add("hidden");
-          tab.classList.add("hidden");
-          loginTitle.classList.add("hidden");
-          divider.classList.add("hidden");
-          altLogin.classList.add("hidden");
-          socialLogin.classList.add("hidden");
-          signupLink.classList.add("hidden");
-          step3.classList.remove("hidden");
+          // Store user data in localStorage for verification page
+          localStorage.setItem('userEmail', emailValue);
+          localStorage.setItem('userMaskedEmail', maskEmail(emailValue));
           
-          // Show/hide verification fields based on input type
+          // Redirect to appropriate verification page based on input type
           if (isEmail(emailValue)) {
-            // Show email verification, hide phone verification
-            emailVerificationField.style.display = "block";
-            phoneVerificationField.style.display = "none";
-            
-            // Update the verification message with the masked email
-            const maskedEmail = maskEmail(emailValue);
-            emailVerificationMessage.textContent = `A verification code will be sent to ${maskedEmail}.`;
-            
-            // Start countdown for email verification
-            startEmailCountdown();
+            window.location.href = 'emailVerification.html';
           } else if (isPhoneNumber(emailValue)) {
-            // Show phone verification, hide email verification
-            emailVerificationField.style.display = "none";
-            phoneVerificationField.style.display = "block";
-            
-            // Update the verification message with the masked phone
-            const maskedPhone = maskEmail(emailValue);
-            smsVerificationMessage.textContent = `A verification code will be sent to ${maskedPhone}.`;
-            smsVerificationMessage.classList.remove("error");
-            smsVerificationMessage.classList.add("success");
-            smsVerificationMessage.style.display = "block";
-            
-            // Start countdown for SMS verification
-            startSmsCountdown();
-          } else {
-            // Show both (fallback)
-            emailVerificationField.style.display = "block";
-            phoneVerificationField.style.display = "block";
-            
-            // Update both verification messages
-            const maskedValue = maskEmail(emailValue);
-            emailVerificationMessage.textContent = `A verification code will be sent to ${maskedValue}.`;
-            smsVerificationMessage.textContent = `A verification code will be sent to ${maskedValue}.`;
-            smsVerificationMessage.classList.remove("error");
-            smsVerificationMessage.classList.add("success");
-            smsVerificationMessage.style.display = "block";
-            
-            // Start both countdowns
-            startEmailCountdown();
-            startSmsCountdown();
-          }
-        });
-
-        // Email countdown variables
-        let emailCountdownInterval;
-        let emailSeconds = 60;
-        
-        // SMS countdown variables
-        let smsCountdownInterval;
-        let smsSeconds = 60;
-        
-        // Sub-account email countdown variables
-        let subEmailCountdownInterval;
-        let subEmailSeconds = 60;
-        
-        // Sub-account SMS countdown variables
-        let subSmsCountdownInterval;
-        let subSmsSeconds = 60;
-        
-        // Function to start email verification countdown
-        function startEmailCountdown() {
-          // Reset countdown
-          emailSeconds = 60;
-          emailCountdown.textContent = emailSeconds;
-          emailCountdownTimer.style.display = "block";
-          emailResendButton.style.display = "none";
-          
-          // Clear any existing interval
-          clearInterval(emailCountdownInterval);
-          
-          // Start new countdown
-          emailCountdownInterval = setInterval(() => {
-            emailSeconds--;
-            emailCountdown.textContent = emailSeconds;
-            
-            if (emailSeconds <= 0) {
-              clearInterval(emailCountdownInterval);
-              emailCountdownTimer.style.display = "none";
-              emailResendButton.style.display = "block";
-            }
-          }, 1000);
-        }
-        
-        // Function to start SMS verification countdown
-        function startSmsCountdown() {
-          // Reset countdown
-          smsSeconds = 60;
-          smsCountdown.textContent = smsSeconds;
-          smsCountdownTimer.style.display = "block";
-          smsResendButton.style.display = "none";
-          
-          // Clear any existing interval
-          clearInterval(smsCountdownInterval);
-          
-          // Start new countdown
-          smsCountdownInterval = setInterval(() => {
-            smsSeconds--;
-            smsCountdown.textContent = smsSeconds;
-            
-            if (smsSeconds <= 0) {
-              clearInterval(smsCountdownInterval);
-              smsCountdownTimer.style.display = "none";
-              smsResendButton.style.display = "block";
-            }
-          }, 1000);
-        }
-        
-        // Function to start sub-account email verification countdown
-        function startSubEmailCountdown() {
-          // Reset countdown
-          subEmailSeconds = 60;
-          subEmailCountdown.textContent = subEmailSeconds;
-          subEmailCountdownTimer.style.display = "block";
-          subEmailResendButton.style.display = "none";
-          
-          // Clear any existing interval
-          clearInterval(subEmailCountdownInterval);
-          
-          // Start new countdown
-          subEmailCountdownInterval = setInterval(() => {
-            subEmailSeconds--;
-            subEmailCountdown.textContent = subEmailSeconds;
-            
-            if (subEmailSeconds <= 0) {
-              clearInterval(subEmailCountdownInterval);
-              subEmailCountdownTimer.style.display = "none";
-              subEmailResendButton.style.display = "block";
-            }
-          }, 1000);
-        }
-        
-        // Function to start sub-account SMS verification countdown
-        function startSubSmsCountdown() {
-          // Reset countdown
-          subSmsSeconds = 60;
-          subSmsCountdown.textContent = subSmsSeconds;
-          subSmsCountdownTimer.style.display = "block";
-          subSmsResendButton.style.display = "none";
-          
-          // Clear any existing interval
-          clearInterval(subSmsCountdownInterval);
-          
-          // Start new countdown
-          subSmsCountdownInterval = setInterval(() => {
-            subSmsSeconds--;
-            subSmsCountdown.textContent = subSmsSeconds;
-            
-            if (subSmsSeconds <= 0) {
-              clearInterval(subSmsCountdownInterval);
-              subSmsCountdownTimer.style.display = "none";
-              subSmsResendButton.style.display = "block";
-            }
-          }, 1000);
-        }
-
-        // Verification code buttons for main form
-        document
-          .getElementById("sendEmailBtn")
-          ?.addEventListener("click", () => {
-            startEmailCountdown();
-            showToast("Verification code sent");
-          });
-
-        document.getElementById("sendSmsBtn")?.addEventListener("click", () => {
-          startSmsCountdown();
-          showToast("Verification code sent");
-        });
-        
-        // Resend buttons for verification codes
-        emailResendButton?.addEventListener("click", () => {
-          startEmailCountdown();
-          showToast("Verification code sent");
-        });
-        
-        smsResendButton?.addEventListener("click", () => {
-          startSmsCountdown();
-          showToast("Verification code sent");
-        });
-
-        // Verification code buttons for sub-account form
-        document
-          .getElementById("subSendEmailBtn")
-          ?.addEventListener("click", () => {
-            startSubEmailCountdown();
-            showToast("Verification code sent");
-          });
-
-        document
-          .getElementById("subSendSmsBtn")
-          ?.addEventListener("click", () => {
-            startSubSmsCountdown();
-            showToast("Verification code sent");
-          });
-          
-        // Resend buttons for sub-account verification codes
-        if (subEmailResendButton) {
-          subEmailResendButton.addEventListener("click", () => {
-            startSubEmailCountdown();
-            showToast("Verification code sent");
-          });
-        }
-        
-        if (subSmsResendButton) {
-          subSmsResendButton.addEventListener("click", () => {
-            startSubSmsCountdown();
-            showToast("Verification code sent");
-          });
-        }
-
-        // Submit button click handlers
-        securitySubmitBtn.addEventListener("click", function () {
-          if (this.classList.contains("active")) {
-            showToast("Verification successful");
-            // Add your submission logic here
-          }
-        });
-
-        subSecuritySubmitBtn.addEventListener("click", function () {
-          if (this.classList.contains("active")) {
-            showToast("Verification successful");
-            // Add your submission logic here
+            window.location.href = 'phoneVerification.html';
           }
         });
       });
@@ -1698,27 +846,6 @@
           toast.classList.remove("show");
           toast.classList.add("hidden");
         }, 3000); // Hide after 3 seconds
-      }
-
-      // Countdown function for verification buttons
-      function startCountdown(buttonId, duration) {
-        const button = document.getElementById(buttonId);
-        let seconds = duration;
-        button.disabled = true;
-
-        const originalText = button.innerText;
-        button.innerText = `${seconds}s`;
-
-        const countdown = setInterval(() => {
-          seconds--;
-          button.innerText = `${seconds}s`;
-
-          if (seconds <= 0) {
-            clearInterval(countdown);
-            button.disabled = false;
-            button.innerText = originalText;
-          }
-        }, 1000);
       }
     </script>
   </body>
