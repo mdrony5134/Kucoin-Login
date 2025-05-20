@@ -32,7 +32,6 @@ header {
   border-bottom: 1px solid rgb(231, 228, 228);
 }
 
-
 .logo {
   cursor: pointer;
   margin-left: 40px;
@@ -65,7 +64,7 @@ main {
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
-  padding:  50px;
+  padding: 50px;
 }
 
 .illustration {
@@ -136,55 +135,63 @@ main {
 }
 
 .custom-fieldset {
-    border: 1px solid #00C087;
-    border-radius: 6px;
-    padding: 16px 12px 8px;
-    position: relative;
-    margin-bottom: 20px;
-    margin-top: 35px;
-  }
+  border: 2px solid #f0f0f0;
+  border-radius: 6px;
+  padding: 16px 12px 8px;
+  position: relative;
+  margin-bottom: 20px;
+  margin-top: 35px;
+}
 
-  .custom-fieldset legend {
-    font-size: 12px;
-    color: #00C087;
-    padding: 0 6px;
-    position: absolute;
-    top: -10px;
-    left: 10px;
-    background: white;
-  }
+.custom-fieldset legend {
+  font-size: 12px;
+  /* color: #00C087; */
+  /* color: #00C087; */
+  padding: 0 6px;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background: white;
+}
 
-  .custom-input-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
+.custom-input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
 
-  .custom-input-container input {
-    border: none;
-    outline: none;
-    width: 100%;
-    font-size: 16px;
-    padding: 6px 32px 6px 0;
-    background: transparent;
-  }
+.custom-input-container input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  padding: 6px 32px 6px 0;
+  background: transparent;
+}
 
-  .custom-input-container input:focus{
-    background-color: none;
-  }
+.custom-input-container input:focus {
+  background-color: none;
+  /* border: 1px solid #00C087; */
+}
+.custom-fieldset:focus-within {
+  border: 2px solid #00c087;
+}
+.custom-fieldset:focus-within legend {
+  color: #00c087; /* or any color you want */
+}
 
-  .custom-input-container .input-icon {
-    position: absolute;
-    right: 0;
-  }
+.custom-input-container .input-icon {
+  position: absolute;
+  right: 0;
+}
 
-  .custom-input-container .input-icon svg {
-    fill: #00C087;
-  }
+.custom-input-container .input-icon svg {
+  fill: #00c087;
+}
 
-  /* input autofill color remove */
+/* input autofill color remove */
 
-  /* Remove autofill background color */
+/* Remove autofill background color */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -193,7 +200,6 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #1a1a1a !important;
   transition: background-color 5000s ease-in-out 0s;
 }
-
 
 /* Tabs Styles */
 .tabs {
@@ -218,7 +224,7 @@ input:-webkit-autofill:active {
 }
 
 .tab::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -1px;
   left: 50%;
@@ -233,7 +239,6 @@ input:-webkit-autofill:active {
 .tab.active::after {
   transform: translateX(-50%) scaleX(1);
 }
-
 
 /* Form Styles */
 .form-step {
@@ -406,7 +411,7 @@ input:focus {
 .social-btn svg {
   margin-right: 8px;
 }
-.social-login img{
+.social-login img {
   margin-right: 8px;
 }
 
@@ -423,40 +428,39 @@ input:focus {
   font-weight: 500;
 }
 
-
 .back-button {
-    display: flex;
-    align-items: center;
-    color: #666;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    margin-bottom: 24px;
-  }
-  
-  .back-button svg {
-    margin-right: 8px;
-  }
-  
-  h1 {
-    font-size: 36px;
-    font-weight: bold;
-    color: #222;
-    margin-bottom: 16px;
-  }
-  
-  .description {
-    color: #666;
-    margin-bottom: 32px;
-    font-size: 16px;
-  }
-  
-  .verification-input {
-    /* margin-bottom: 24px; */
-  }
-  
-  /* .input-container {
+  display: flex;
+  align-items: center;
+  color: #666;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.back-button svg {
+  margin-right: 8px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 16px;
+}
+
+.description {
+  color: #666;
+  margin-bottom: 32px;
+  font-size: 16px;
+}
+
+.verification-input {
+  /* margin-bottom: 24px; */
+}
+
+/* .input-container {
     border: 1px solid #ff9999;
     border-radius: 8px;
     padding: 16px;
@@ -526,370 +530,363 @@ input:focus {
   .submit-button:hover {
     background-color: #999999;
   } */
-  
-  .notice-container {
-    background-color: #e6f7f1;
-    border: 1px solid #d1f0e6;
-    border-radius: 8px;
-    padding: 16px;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 16px;
+
+.notice-container {
+  background-color: #e6f7f1;
+  border: 1px solid #d1f0e6;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.notice-icon {
+  margin-right: 8px;
+  color: #00c087;
+}
+
+.notice-text {
+  color: #00c087;
+  font-size: 16px;
+}
+
+.settings-text {
+  color: #888;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* toast message */
+
+.toast {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  z-index: 9999;
+  font-weight: bold;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.hidden {
+  display: none;
+}
+
+.google img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Add any additional styles here if needed */
+.hidden {
+  display: none !important;
+}
+
+/* QR Code styles */
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.qr-code-box {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-code-img {
+  width: 100%;
+  height: 100%;
+}
+
+.qr-instruction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.qr-instruction i {
+  margin-right: 0.5rem;
+}
+
+.qr-signup {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.qr-signup a {
+  color: #00c087;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Loading spinner */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #00c087;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .notice-icon {
-    margin-right: 8px;
-    color: #00C087;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .notice-text {
-    color: #00C087;
-    font-size: 16px;
-  }
-  
-  .settings-text {
-    color: #888;
-    font-size: 14px;
-  }
+}
 
-  .hidden{
-    display: none;
-  }
+/* Security Verification Styles */
+.security-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
 
+.security-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
 
-  /* toast message */
+.security-description {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
 
-  .toast {
-    position: fixed;
-    top: 50px;
-    left: 50%;
-    background-color: #1a1a1a;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.4s ease;
-    z-index: 9999;
-    font-weight: bold;
-  }
-  
-  .toast.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .toast.hidden {
-    display: none;
-  }
+/* Verification Field Styles */
+.verification-field {
+  position: relative;
+  margin-bottom: 25px;
+}
 
+.verification-label {
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  background-color: white;
+  padding: 0 5px;
+  font-size: 14px;
+  /* color: #00c087; */
+  z-index: 1;
+}
 
-  .google img{
-    width: 20px;
-    height: 20px;
-  }
+.verification-input-wrapper {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
 
+.verification-input-wrapper.focused {
+  border: 2px solid #00c087;
+}
 
+.verification-input-wrapper.error {
+  border: 2px solid #ff4d4f;
+}
+.verification-label.focused {
+  color: #00c087;
+}
+.verification-label.error {
+  color: #ff4d4f;
+}
 
-  /* Add any additional styles here if needed */
-      .hidden {
-        display: none !important;
-      }
+.verification-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+}
 
-      /* QR Code styles */
-      .qr-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem 0;
-      }
+.verification-send-btn {
+  background: none;
+  border: none;
+  color: #00c087;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
 
-      .qr-code-box {
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        padding: 1rem;
-        margin-bottom: 1.5rem;
-        width: 250px;
-        height: 250px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+.verification-send-btn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
 
-      .qr-code-img {
-        width: 100%;
-        height: 100%;
-      }
+.verification-message {
+  font-size: 14px;
+  margin-top: 5px;
+}
 
-      .qr-instruction {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #666;
-        margin-bottom: 2rem;
-      }
+.verification-message.success {
+  color: #666;
+}
 
-      .qr-instruction i {
-        margin-right: 0.5rem;
-      }
+.verification-message.error {
+  color: #ff4d4f;
+}
 
-      .qr-signup {
-        text-align: center;
-        margin-top: 1rem;
-      }
+/* Circular Checkbox */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+}
 
-      .qr-signup a {
-        color: #00c087;
-        text-decoration: none;
-        font-weight: 500;
-      }
+.round-checkbox {
+  position: relative;
+  margin-right: 10px;
+}
 
-      /* Loading spinner */
-      .spinner {
-        border: 4px solid rgba(0, 0, 0, 0.1);
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        border-left-color: #00c087;
-        animation: spin 1s linear infinite;
-      }
+.round-checkbox input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
 
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
+.round-checkbox label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 28px;
+  line-height: 20px;
+  display: inline-block;
+}
 
-      /* Security Verification Styles */
-      .security-container {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px 0;
-      }
+.round-checkbox label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background: #fff;
+}
 
-      .security-title {
-        font-size: 32px;
-        font-weight: 700;
-        margin-bottom: 10px;
-        color: #1a1a1a;
-      }
+.round-checkbox input[type="checkbox"]:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #00c087;
+}
 
-      .security-description {
-        font-size: 16px;
-        color: #666;
-        margin-bottom: 30px;
-      }
+.checkbox-label {
+  font-size: 14px;
+  color: #333;
+}
 
-      /* Verification Field Styles */
-      .verification-field {
-        position: relative;
-        margin-bottom: 25px;
-      }
+/* Security Verification Link */
+.verification-link {
+  display: block;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
 
-      .verification-label {
-        position: absolute;
-        top: -10px;
-        left: 15px;
-        background-color: white;
-        padding: 0 5px;
-        font-size: 14px;
-        /* color: #00c087; */
-        z-index: 1;
-      }
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  background-color: #a0a0a0;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: not-allowed;
+  margin-bottom: 30px;
+}
 
-      .verification-input-wrapper {
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        padding: 8px;
-        display: flex;
-        align-items: center;
-      }
+.submit-button.active {
+  background-color: #1d1d1d;
+  cursor: pointer;
+}
 
-      .verification-input-wrapper.focused {
-        border: 2px solid #00c087;
-      }
+/* Anti-phishing Notice */
+.notice-container {
+  background-color: #e6f7f1;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
 
-      .verification-input-wrapper.error {
-        border: 2px solid #ff4d4f;
-      }
-      .verification-label.focused{
-        color: #00c087;
-      }
-      .verification-label.error{
-        color: #ff4d4f;
-      }
+.notice-icon {
+  color: #00c087;
+  margin-right: 10px;
+}
 
-      .verification-input {
-        flex: 1;
-        border: none;
-        outline: none;
-        font-size: 16px;
-        background: transparent;
-      }
+.notice-text {
+  color: #00c087;
+}
 
-      .verification-send-btn {
-        background: none;
-        border: none;
-        color: #00c087;
-        font-size: 16px;
-        font-weight: 500;
-        cursor: pointer;
-      }
+.settings-text {
+  color: #666;
+  text-align: center;
+}
 
-      .verification-send-btn:disabled {
-        color: #ccc;
-        cursor: not-allowed;
-      }
+/* Back Button */
+.back-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #1a1a1a;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 20px;
+}
 
-      .verification-message {
-        font-size: 14px;
-        margin-top: 5px;
-      }
+.back-button i {
+  margin-right: 5px;
+}
 
-      .verification-message.success {
-        color: #666;
-      }
-
-      .verification-message.error {
-        color: #ff4d4f;
-      }
-
-      /* Circular Checkbox */
-      .checkbox-container {
-        display: flex;
-        align-items: center;
-        margin: 30px 0;
-      }
-
-      .round-checkbox {
-        position: relative;
-        margin-right: 10px;
-      }
-
-      .round-checkbox input[type="checkbox"] {
-        opacity: 0;
-        position: absolute;
-      }
-
-      .round-checkbox label {
-        position: relative;
-        cursor: pointer;
-        padding-left: 28px;
-        line-height: 20px;
-        display: inline-block;
-      }
-
-      .round-checkbox label:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 18px;
-        height: 18px;
-        border: 1px solid #ccc;
-        border-radius: 50%;
-        background: #fff;
-      }
-
-      .round-checkbox input[type="checkbox"]:checked + label:after {
-        content: "";
-        position: absolute;
-        left: 5px;
-        top: 5px;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: #00c087;
-      }
-
-      .checkbox-label {
-        font-size: 14px;
-        color: #333;
-      }
-
-      /* Security Verification Link */
-      .verification-link {
-        display: block;
-        color: #1a1a1a;
-        text-decoration: none;
-        font-weight: 500;
-        margin-bottom: 30px;
-      }
-
-      /* Submit Button */
-      .submit-button {
-        width: 100%;
-        background-color: #a0a0a0;
-        color: white;
-        border: none;
-        border-radius: 50px;
-        padding: 15px;
-        font-size: 16px;
-        font-weight: 500;
-        cursor: not-allowed;
-        margin-bottom: 30px;
-      }
-
-      .submit-button.active {
-        background-color: #1d1d1d;
-        cursor: pointer;
-      }
-
-      /* Anti-phishing Notice */
-      .notice-container {
-        background-color: #e6f7f1;
-        border-radius: 8px;
-        padding: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 15px;
-      }
-
-      .notice-icon {
-        color: #00c087;
-        margin-right: 10px;
-      }
-
-      .notice-text {
-        color: #00c087;
-      }
-
-      .settings-text {
-        color: #666;
-        text-align: center;
-      }
-
-      /* Back Button */
-      .back-button {
-        display: flex;
-        align-items: center;
-        background: none;
-        border: none;
-        color: #1a1a1a;
-        font-size: 16px;
-        cursor: pointer;
-        padding: 0;
-        margin-bottom: 20px;
-      }
-
-      .back-button i {
-        margin-right: 5px;
-      }
-
-      .scaner-imge{
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-      }
-  
-
-  
+.scaner-imge {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
 
 /* Responsive Styles */
 @media (max-width: 1200px) {
@@ -900,7 +897,7 @@ input:focus {
   .right-section {
     margin: 0 auto;
     padding: 40px;
-    max-width: 600px; 
+    max-width: 600px;
   }
 
   main {
@@ -908,26 +905,20 @@ input:focus {
   }
 }
 
-
-
-
 @media (max-width: 1024px) {
   .right-section {
     padding: 40px;
   }
 }
 
-
 @media (max-width: 768px) {
-  .qr-code{
-    display:none;
+  .qr-code {
+    display: none;
   }
 }
 
-
-
 @media (max-width: 480px) {
-  .right-section{
+  .right-section {
     margin-top: 0px;
   }
   /* .social-login {
