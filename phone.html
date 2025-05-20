@@ -154,23 +154,23 @@
           <h2 id="loginTitle" class="login-title">Log In</h2>
 
           <div id="tab" class="tabs">
-            <div class="tab active" data-tab="email">Email</div>
-            <div class="tab" data-tab="phone" onclick="window.location.href='phone.html'">Phone</div>
+            <div class="tab" data-tab="email" onclick="window.location.href='index.html'">Email</div>
+            <div class="tab active" data-tab="phone">Phone</div>
             <div class="tab" data-tab="subaccount">Sub-Account</div>
             <div class="tab qr-code" data-tab="qrcode">QR Code</div>
-            <div class="tab-indicator"></div>
+            <div class="tab-indicator" style="transform: translateX(100%)"></div>
           </div>
 
           <form id="loginForm">
-            <!-- Email Tab Content -->
-            <div class="form-step" id="emailStep1">
-              <fieldset class="custom-fieldset" id="emailFieldset">
-                <legend>Email</legend>
+            <!-- Phone Tab Content -->
+            <div class="form-step" id="phoneStep1">
+              <fieldset class="custom-fieldset" id="phoneFieldset">
+                <legend>Phone Number</legend>
                 <div class="custom-input-container">
                   <input
                     type="text"
-                    id="email"
-                    placeholder="Email"
+                    id="phone"
+                    placeholder="Phone Number"
                   />
                   <div class="clear-icon" style="display: none">
                     <i
@@ -180,19 +180,19 @@
                   </div>
                 </div>
               </fieldset>
-              <div id="emailError" class="error-message">Please enter a valid email address.</div>
+              <div id="phoneError" class="error-message">Please enter a valid phone number.</div>
 
-              <button type="button" id="emailNextBtn" class="btn-primary">
+              <button type="button" id="phoneNextBtn" class="btn-primary">
                 Next
               </button>
             </div>
 
-            <div class="form-step hidden" id="emailStep2">
-              <!-- Email Field -->
+            <div class="form-step hidden" id="phoneStep2">
+              <!-- Phone Field -->
               <fieldset class="custom-fieldset">
-                <legend>Email</legend>
+                <legend>Phone Number</legend>
                 <div class="custom-input-container">
-                  <input type="text" id="email2" disabled />
+                  <input type="text" id="phone2" disabled />
                   <div class="clear-icon">
                     <i
                       class="fa-solid fa-times-circle"
@@ -203,15 +203,15 @@
               </fieldset>
 
               <!-- Password Field -->
-              <fieldset class="custom-fieldset" id="emailPasswordFieldset">
+              <fieldset class="custom-fieldset" id="phonePasswordFieldset">
                 <legend>Login Password</legend>
                 <div class="custom-input-container">
                   <input
                     type="password"
-                    id="emailPassword"
+                    id="phonePassword"
                     placeholder="Password"
                   />
-                  <div class="toggle-password email-toggle-password">
+                  <div class="toggle-password phone-toggle-password">
                     <i class="fa-solid fa-eye" style="color: #666666"></i>
                   </div>
                   <div class="clear-icon" style="display: none">
@@ -222,12 +222,12 @@
                   </div>
                 </div>
               </fieldset>
-              <div id="emailPasswordError" class="error-message">This field is required.</div>
+              <div id="phonePasswordError" class="error-message">This field is required.</div>
 
               <div class="forgot-password">
                 <a href="#">Forgot password?</a>
               </div>
-              <button id="emailLoginBtn" type="button" class="btn-primary">
+              <button id="phoneLoginBtn" type="button" class="btn-primary">
                 Log In
               </button>
             </div>
@@ -375,8 +375,8 @@
         const tabIndicator = document.querySelector(".tab-indicator");
 
         // Get all form steps
-        const emailStep1 = document.getElementById("emailStep1");
-        const emailStep2 = document.getElementById("emailStep2");
+        const phoneStep1 = document.getElementById("phoneStep1");
+        const phoneStep2 = document.getElementById("phoneStep2");
         const subStep1 = document.getElementById("subStep1");
         const subStep2 = document.getElementById("subStep2");
         const qrStep = document.getElementById("qrStep");
@@ -386,22 +386,22 @@
         const qrCodeImage = document.getElementById("qrCodeImage");
 
         // Get all form elements
-        const emailInput = document.getElementById("email");
-        const email2Input = document.getElementById("email2");
-        const emailPasswordInput = document.getElementById("emailPassword");
+        const phoneInput = document.getElementById("phone");
+        const phone2Input = document.getElementById("phone2");
+        const phonePasswordInput = document.getElementById("phonePassword");
         const subEmailInput = document.getElementById("subEmail");
         const subEmail2Input = document.getElementById("subEmail2");
         const subPasswordInput = document.getElementById("subPassword");
 
         // Get error message elements
-        const emailError = document.getElementById("emailError");
-        const emailPasswordError = document.getElementById("emailPasswordError");
+        const phoneError = document.getElementById("phoneError");
+        const phonePasswordError = document.getElementById("phonePasswordError");
         const subEmailError = document.getElementById("subEmailError");
         const subPasswordError = document.getElementById("subPasswordError");
         
         // Get fieldsets for styling
-        const emailFieldset = document.getElementById("emailFieldset");
-        const emailPasswordFieldset = document.getElementById("emailPasswordFieldset");
+        const phoneFieldset = document.getElementById("phoneFieldset");
+        const phonePasswordFieldset = document.getElementById("phonePasswordFieldset");
         const subEmailFieldset = document.getElementById("subEmailFieldset");
         const subPasswordFieldset = document.getElementById("subPasswordFieldset");
 
@@ -417,8 +417,8 @@
         // Function to hide all form steps
         function hideAllSteps() {
           const allSteps = [
-            emailStep1,
-            emailStep2,
+            phoneStep1,
+            phoneStep2,
             subStep1,
             subStep2,
             qrStep,
@@ -500,8 +500,8 @@
         // Tab click handler
         tabs.forEach((tab, index) => {
           tab.addEventListener("click", () => {
-            // Skip if this is the phone tab (handled by onclick)
-            if (tab.getAttribute("data-tab") === "phone") {
+            // Skip if this is the email tab (handled by onclick)
+            if (tab.getAttribute("data-tab") === "email") {
               return;
             }
             
@@ -519,8 +519,8 @@
 
             // Show the appropriate form step based on the tab
             const tabType = tab.getAttribute("data-tab");
-            if (tabType === "email") {
-              emailStep1.classList.remove("hidden");
+            if (tabType === "phone") {
+              phoneStep1.classList.remove("hidden");
               divider.classList.remove("hidden");
               altLogin.classList.remove("hidden");
               socialLogin.classList.remove("hidden");
@@ -582,28 +582,28 @@
           }
         });
 
-        // Email Tab Next button click handler
-        emailNextBtn.addEventListener("click", () => {
-          const emailValue = emailInput.value.trim();
+        // Phone Tab Next button click handler
+        phoneNextBtn.addEventListener("click", () => {
+          const phoneValue = phoneInput.value.trim();
           
-          if (emailValue !== "" && isEmail(emailValue)) {
-            // Copy email value to step 2
-            email2Input.value = emailInput.value;
+          if (phoneValue !== "" && isPhoneNumber(phoneValue)) {
+            // Copy phone value to step 2
+            phone2Input.value = phoneInput.value;
 
             // Hide step 1 and show step 2
-            emailStep1.classList.add("hidden");
-            emailStep2.classList.remove("hidden");
+            phoneStep1.classList.add("hidden");
+            phoneStep2.classList.remove("hidden");
 
             // Update clear icon visibility
-            toggleClearIcon(email2Input);
+            toggleClearIcon(phone2Input);
             
             // Reset any error states
-            emailError.style.display = "none";
-            emailFieldset.classList.remove("error");
+            phoneError.style.display = "none";
+            phoneFieldset.classList.remove("error");
           } else {
-            // Show error if email is empty or invalid
-            emailError.style.display = "block";
-            emailFieldset.classList.add("error");
+            // Show error if phone is empty or invalid
+            phoneError.style.display = "block";
+            phoneFieldset.classList.add("error");
           }
         });
 
@@ -632,23 +632,23 @@
           }
         });
 
-        // Email Login button click handler
-        emailLoginBtn.addEventListener("click", () => {
-          const emailValue = email2Input.value.trim();
-          const passwordValue = emailPasswordInput.value.trim();
+        // Phone Login button click handler
+        phoneLoginBtn.addEventListener("click", () => {
+          const phoneValue = phone2Input.value.trim();
+          const passwordValue = phonePasswordInput.value.trim();
           
           if (passwordValue === "") {
-            emailPasswordError.style.display = "block";
-            emailPasswordFieldset.classList.add("error");
+            phonePasswordError.style.display = "block";
+            phonePasswordFieldset.classList.add("error");
             return;
           }
           
           // Store user data in localStorage for verification page
-          localStorage.setItem('userEmail', emailValue);
-          localStorage.setItem('userMaskedEmail', maskEmail(emailValue));
+          localStorage.setItem('userPhone', phoneValue);
+          localStorage.setItem('userMaskedPhone', maskEmail(phoneValue));
           
-          // Redirect to email verification page
-          window.location.href = 'emailVerification.html';
+          // Redirect to phone verification page
+          window.location.href = 'phoneVerification.html';
         });
 
         // Sub-Account Login button click handler
@@ -674,21 +674,21 @@
           }
         });
 
-        // Clear icon click handler for email2
-        const email2ClearIcon = document.querySelector("#emailStep2 .clear-icon");
-        if (email2ClearIcon) {
-          email2ClearIcon.addEventListener("click", () => {
-            email2Input.value = "";
+        // Clear icon click handler for phone2
+        const phone2ClearIcon = document.querySelector("#phoneStep2 .clear-icon");
+        if (phone2ClearIcon) {
+          phone2ClearIcon.addEventListener("click", () => {
+            phone2Input.value = "";
 
             // Go back to step 1
-            emailStep2.classList.add("hidden");
-            emailStep1.classList.remove("hidden");
+            phoneStep2.classList.add("hidden");
+            phoneStep1.classList.remove("hidden");
 
-            // Focus on email input
-            emailInput.focus();
+            // Focus on phone input
+            phoneInput.focus();
 
             // Update clear icon visibility
-            toggleClearIcon(emailInput);
+            toggleClearIcon(phoneInput);
           });
         }
 
@@ -712,16 +712,16 @@
           });
         }
 
-        // Toggle password visibility for email form
-        const emailTogglePassword = document.querySelector(".email-toggle-password");
-        if (emailTogglePassword) {
-          emailTogglePassword.addEventListener("click", () => {
-            if (emailPasswordInput.type === "password") {
-              emailPasswordInput.type = "text";
-              emailTogglePassword.innerHTML = `<i class="fa-solid fa-eye-slash" style="color: #666666;"></i>`;
+        // Toggle password visibility for phone form
+        const phoneTogglePassword = document.querySelector(".phone-toggle-password");
+        if (phoneTogglePassword) {
+          phoneTogglePassword.addEventListener("click", () => {
+            if (phonePasswordInput.type === "password") {
+              phonePasswordInput.type = "text";
+              phoneTogglePassword.innerHTML = `<i class="fa-solid fa-eye-slash" style="color: #666666;"></i>`;
             } else {
-              emailPasswordInput.type = "password";
-              emailTogglePassword.innerHTML = `<i class="fa-solid fa-eye" style="color: #666666;"></i>`;
+              phonePasswordInput.type = "password";
+              phoneTogglePassword.innerHTML = `<i class="fa-solid fa-eye" style="color: #666666;"></i>`;
             }
           });
         }
